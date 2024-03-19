@@ -1,0 +1,1805 @@
+Program.Sub.ScreenSU.Start
+Gui.SS_Form1..create
+Gui.SS_Form1..caption("Order Shipments By Customer")
+Gui.SS_Form1..size(6255,10170)
+Gui.SS_Form1..position(0,0)
+Gui.SS_Form1..forecolor(0)
+Gui.SS_Form1..BackColor(-2147483633)
+Gui.SS_Form1..maxbutton(False)
+Gui.SS_Form1..minbutton(False)
+Gui.SS_Form1..mousepointer(0)
+Gui.SS_Form1..sizeable(False)
+Gui.SS_Form1..MinX(0)
+Gui.SS_Form1..MinY(0)
+Gui.SS_Form1..Event(UnLoad,SS_Form1_UnLoad)
+Gui.SS_Form1.lbl_dtp_BegDate.create(label,"Beginning Shipped Date",True,1905,195,1,105,150,True,0,Arial,8,-2147483633,0)
+Gui.SS_Form1.lbl_dtp_BegDate.LabelStretch(True)
+Gui.SS_Form1.lbl_dtp_BegDate.setinternationalid(63800)
+Gui.SS_Form1.dtp_BegDate.create(datepicker)
+Gui.SS_Form1.dtp_BegDate.size(1800,345)
+Gui.SS_Form1.dtp_BegDate.position(105,330)
+Gui.SS_Form1.dtp_BegDate.fontname("Arial")
+Gui.SS_Form1.dtp_BegDate.tabstop(True)
+Gui.SS_Form1.dtp_BegDate.tabindex(1)
+Gui.SS_Form1.lbl_dtp_EndDate.create(label,"Ending Shipped Date",True,1800,200,1,1985,135,True,0,Arial,8,-2147483633,0)
+Gui.SS_Form1.lbl_dtp_EndDate.LabelStretch(True)
+Gui.SS_Form1.lbl_dtp_EndDate.setinternationalid(216300)
+Gui.SS_Form1.dtp_EndDate.create(datepicker)
+Gui.SS_Form1.dtp_EndDate.size(1800,345)
+Gui.SS_Form1.dtp_EndDate.position(1985,335)
+Gui.SS_Form1.dtp_EndDate.fontname("Arial")
+Gui.SS_Form1.dtp_EndDate.tabstop(True)
+Gui.SS_Form1.dtp_EndDate.tabindex(2)
+Gui.SS_Form1.chk_AllDates.create(checkbox)
+Gui.SS_Form1.chk_AllDates.Caption("All Dates")
+Gui.SS_Form1.chk_AllDates.size(1800,300)
+Gui.SS_Form1.chk_AllDates.position(105,690)
+Gui.SS_Form1.chk_AllDates.setinternationalid(19700)
+Gui.SS_Form1.chk_AllDates.tabstop(True)
+Gui.SS_Form1.chk_AllDates.tabindex(3)
+Gui.SS_Form1.chk_AllDates.Event(Click,chk_AllDates_Click)
+Gui.SS_Form1.lbl_txt_BegCust.create(label,"Beginning Customer",True,1800,200,1,100,1235,True,0,Arial,8,-2147483633,0)
+Gui.SS_Form1.lbl_txt_BegCust.LabelStretch(True)
+Gui.SS_Form1.lbl_txt_BegCust.setinternationalid(61000)
+Gui.SS_Form1.txt_BegCust.create(textbox,"",True,1800,300,1,105,1440,True,0,Arial,8,16777215,1)
+Gui.SS_Form1.txt_BegCust.tabstop(True)
+Gui.SS_Form1.txt_BegCust.tabindex(4)
+Gui.SS_Form1.txt_BegCust.Event(GotFocus,txt_BegCust_GotFocus)
+Gui.SS_Form1.txt_BegCust.Event(LostFocus,txt_BegCust_LostFocus)
+Gui.SS_Form1.cmd_txt_BegCust.create(button)
+Gui.SS_Form1.cmd_txt_BegCust.Caption("^")
+Gui.SS_Form1.cmd_txt_BegCust.size(330,330)
+Gui.SS_Form1.cmd_txt_BegCust.position(1980,1440)
+Gui.SS_Form1.cmd_txt_BegCust.tabstop(True)
+Gui.SS_Form1.cmd_txt_BegCust.tabindex(5)
+Gui.SS_Form1.cmd_txt_BegCust.Event(Click,cmd_txt_BegCust_Click)
+Gui.SS_Form1.lbl_txt_EndCust.create(label,"Ending Customer",True,1800,200,1,2455,1235,True,0,Arial,8,-2147483633,0)
+Gui.SS_Form1.lbl_txt_EndCust.LabelStretch(True)
+Gui.SS_Form1.lbl_txt_EndCust.setinternationalid(212900)
+Gui.SS_Form1.txt_EndCust.create(textbox,"",True,1800,300,1,2460,1440,True,0,Arial,8,16777215,1)
+Gui.SS_Form1.txt_EndCust.tabstop(True)
+Gui.SS_Form1.txt_EndCust.tabindex(6)
+Gui.SS_Form1.txt_EndCust.Event(GotFocus,txt_EndCust_GotFocus)
+Gui.SS_Form1.cmd_txt_EndCust.create(button)
+Gui.SS_Form1.cmd_txt_EndCust.Caption("^")
+Gui.SS_Form1.cmd_txt_EndCust.size(330,330)
+Gui.SS_Form1.cmd_txt_EndCust.position(4335,1440)
+Gui.SS_Form1.cmd_txt_EndCust.tabstop(True)
+Gui.SS_Form1.cmd_txt_EndCust.tabindex(7)
+Gui.SS_Form1.cmd_txt_EndCust.Event(Click,cmd_txt_EndCust_Click)
+Gui.SS_Form1.chk_AllCustomers.create(checkbox)
+Gui.SS_Form1.chk_AllCustomers.Caption("All Customers")
+Gui.SS_Form1.chk_AllCustomers.size(1800,300)
+Gui.SS_Form1.chk_AllCustomers.position(105,1770)
+Gui.SS_Form1.chk_AllCustomers.setinternationalid(19200)
+Gui.SS_Form1.chk_AllCustomers.tabstop(True)
+Gui.SS_Form1.chk_AllCustomers.tabindex(9)
+Gui.SS_Form1.chk_AllCustomers.Event(Click,chk_AllCustomers_Click)
+Gui.SS_Form1.lvw1_Cust.create(listview)
+Gui.SS_Form1.lvw1_Cust.view(3)
+Gui.SS_Form1.lvw1_Cust.size(5810,2000)
+Gui.SS_Form1.lvw1_Cust.position(100,2320)
+Gui.SS_Form1.lvw1_Cust.addlistviewcolumn(variable.Translation.61000,2705,0)
+Gui.SS_Form1.lvw1_Cust.addlistviewcolumn(variable.Translation.212900,2705,0)
+Gui.SS_Form1.cmd_lvw1_CustAdd.create(button)
+Gui.SS_Form1.cmd_lvw1_CustAdd.Caption("Add")
+Gui.SS_Form1.cmd_lvw1_CustAdd.size(1005,330)
+Gui.SS_Form1.cmd_lvw1_CustAdd.position(4815,1440)
+Gui.SS_Form1.cmd_lvw1_CustAdd.setinternationalid(7600)
+Gui.SS_Form1.cmd_lvw1_CustAdd.tabstop(True)
+Gui.SS_Form1.cmd_lvw1_CustAdd.tabindex(8)
+Gui.SS_Form1.cmd_lvw1_CustAdd.Event(Click,cmd_lvw1_CustAdd_Click)
+Gui.SS_Form1.cmd_lvw1_CustDelete.create(button)
+Gui.SS_Form1.cmd_lvw1_CustDelete.Caption("Delete")
+Gui.SS_Form1.cmd_lvw1_CustDelete.size(1005,330)
+Gui.SS_Form1.cmd_lvw1_CustDelete.position(105,4410)
+Gui.SS_Form1.cmd_lvw1_CustDelete.setinternationalid(171500)
+Gui.SS_Form1.cmd_lvw1_CustDelete.tabstop(True)
+Gui.SS_Form1.cmd_lvw1_CustDelete.tabindex(10)
+Gui.SS_Form1.cmd_lvw1_CustDelete.Event(Click,cmd_lvw1_CustDelete_Click)
+Gui.SS_Form1.cmd_lvw1_CustClear.create(button)
+Gui.SS_Form1.cmd_lvw1_CustClear.Caption("Clear")
+Gui.SS_Form1.cmd_lvw1_CustClear.size(1005,330)
+Gui.SS_Form1.cmd_lvw1_CustClear.position(1185,4410)
+Gui.SS_Form1.cmd_lvw1_CustClear.setinternationalid(106700)
+Gui.SS_Form1.cmd_lvw1_CustClear.tabstop(True)
+Gui.SS_Form1.cmd_lvw1_CustClear.tabindex(11)
+Gui.SS_Form1.cmd_lvw1_CustClear.Event(Click,cmd_lvw1_CustClear_Click)
+Gui.SS_Form1.lbl_txt_BegShipID.create(label,"Beginning Shipto ID",True,1800,200,1,100,4935,True,0,Arial,8,-2147483633,0)
+Gui.SS_Form1.lbl_txt_BegShipID.LabelStretch(True)
+Gui.SS_Form1.lbl_txt_BegShipID.setinternationalid(63900)
+Gui.SS_Form1.txt_BegShipID.create(textbox,"",True,1800,300,1,105,5130,True,0,Arial,8,16777215,1)
+Gui.SS_Form1.txt_BegShipID.tabstop(True)
+Gui.SS_Form1.txt_BegShipID.tabindex(12)
+Gui.SS_Form1.txt_BegShipID.Event(GotFocus,txt_BegShipID_GotFocus)
+Gui.SS_Form1.txt_BegShipID.Event(LostFocus,txt_BegShipID_LostFocus)
+Gui.SS_Form1.cmd_txt_BegShipID.create(button)
+Gui.SS_Form1.cmd_txt_BegShipID.Caption("^")
+Gui.SS_Form1.cmd_txt_BegShipID.size(330,330)
+Gui.SS_Form1.cmd_txt_BegShipID.position(1980,5130)
+Gui.SS_Form1.cmd_txt_BegShipID.tabstop(True)
+Gui.SS_Form1.cmd_txt_BegShipID.tabindex(13)
+Gui.SS_Form1.cmd_txt_BegShipID.Event(Click,cmd_txt_BegShipID_Click)
+Gui.SS_Form1.lbl_txt_EndShipID.create(label,"Ending Shipto ID",True,1800,200,1,2455,4935,True,0,Arial,8,-2147483633,0)
+Gui.SS_Form1.lbl_txt_EndShipID.LabelStretch(True)
+Gui.SS_Form1.lbl_txt_EndShipID.setinternationalid(216400)
+Gui.SS_Form1.txt_EndShipID.create(textbox,"",True,1800,300,1,2460,5130,True,0,Arial,8,16777215,1)
+Gui.SS_Form1.txt_EndShipID.tabstop(True)
+Gui.SS_Form1.txt_EndShipID.tabindex(14)
+Gui.SS_Form1.txt_EndShipID.Event(GotFocus,txt_EndShipID_GotFocus)
+Gui.SS_Form1.cmd_txt_EndShipID.create(button)
+Gui.SS_Form1.cmd_txt_EndShipID.Caption("^")
+Gui.SS_Form1.cmd_txt_EndShipID.size(330,330)
+Gui.SS_Form1.cmd_txt_EndShipID.position(4335,5130)
+Gui.SS_Form1.cmd_txt_EndShipID.tabstop(True)
+Gui.SS_Form1.cmd_txt_EndShipID.tabindex(15)
+Gui.SS_Form1.cmd_txt_EndShipID.Event(Click,cmd_txt_EndShipID_Click)
+Gui.SS_Form1.chk_AllShipIDs.create(checkbox)
+Gui.SS_Form1.chk_AllShipIDs.Caption("All Shipto IDs")
+Gui.SS_Form1.chk_AllShipIDs.size(1800,300)
+Gui.SS_Form1.chk_AllShipIDs.position(105,5475)
+Gui.SS_Form1.chk_AllShipIDs.setinternationalid(751802)
+Gui.SS_Form1.chk_AllShipIDs.tabstop(True)
+Gui.SS_Form1.chk_AllShipIDs.tabindex(17)
+Gui.SS_Form1.chk_AllShipIDs.Event(Click,chk_AllShipIDs_Click)
+Gui.SS_Form1.lvw1_ShiptoID.create(listview)
+Gui.SS_Form1.lvw1_ShiptoID.view(3)
+Gui.SS_Form1.lvw1_ShiptoID.size(5805,1995)
+Gui.SS_Form1.lvw1_ShiptoID.position(105,6015)
+Gui.SS_Form1.lvw1_ShiptoID.addlistviewcolumn(variable.Translation.63900,2705,0)
+Gui.SS_Form1.lvw1_ShiptoID.addlistviewcolumn(variable.Translation.216400,2705,0)
+Gui.SS_Form1.cmd_lvw1_ShiptoIDAdd.create(button)
+Gui.SS_Form1.cmd_lvw1_ShiptoIDAdd.Caption("Add")
+Gui.SS_Form1.cmd_lvw1_ShiptoIDAdd.size(1005,330)
+Gui.SS_Form1.cmd_lvw1_ShiptoIDAdd.position(4815,5130)
+Gui.SS_Form1.cmd_lvw1_ShiptoIDAdd.setinternationalid(7600)
+Gui.SS_Form1.cmd_lvw1_ShiptoIDAdd.tabstop(True)
+Gui.SS_Form1.cmd_lvw1_ShiptoIDAdd.tabindex(16)
+Gui.SS_Form1.cmd_lvw1_ShiptoIDAdd.Event(Click,cmd_lvw1_ShiptoIDAdd_Click)
+Gui.SS_Form1.cmd_lvw1_ShiptoIDDelete.create(button)
+Gui.SS_Form1.cmd_lvw1_ShiptoIDDelete.Caption("Delete")
+Gui.SS_Form1.cmd_lvw1_ShiptoIDDelete.size(1005,330)
+Gui.SS_Form1.cmd_lvw1_ShiptoIDDelete.position(105,8100)
+Gui.SS_Form1.cmd_lvw1_ShiptoIDDelete.setinternationalid(171500)
+Gui.SS_Form1.cmd_lvw1_ShiptoIDDelete.tabstop(True)
+Gui.SS_Form1.cmd_lvw1_ShiptoIDDelete.tabindex(18)
+Gui.SS_Form1.cmd_lvw1_ShiptoIDDelete.Event(Click,cmd_lvw1_ShiptoIDDelete_Click)
+Gui.SS_Form1.cmd_lvw1_ShiptoIDClear.create(button)
+Gui.SS_Form1.cmd_lvw1_ShiptoIDClear.Caption("Clear")
+Gui.SS_Form1.cmd_lvw1_ShiptoIDClear.size(1005,330)
+Gui.SS_Form1.cmd_lvw1_ShiptoIDClear.position(1185,8100)
+Gui.SS_Form1.cmd_lvw1_ShiptoIDClear.setinternationalid(106700)
+Gui.SS_Form1.cmd_lvw1_ShiptoIDClear.tabstop(True)
+Gui.SS_Form1.cmd_lvw1_ShiptoIDClear.tabindex(19)
+Gui.SS_Form1.cmd_lvw1_ShiptoIDClear.Event(Click,cmd_lvw1_ShiptoIDClear_Click)
+Gui.SS_Form1.chk_InclFreight.create(checkbox)
+Gui.SS_Form1.chk_InclFreight.Caption("Include Freight Charges")
+Gui.SS_Form1.chk_InclFreight.size(3600,300)
+Gui.SS_Form1.chk_InclFreight.position(105,8640)
+Gui.SS_Form1.chk_InclFreight.setinternationalid(291402)
+Gui.SS_Form1.chk_InclFreight.tabstop(True)
+Gui.SS_Form1.chk_InclFreight.tabindex(20)
+Gui.SS_Form1.cmd_Print.create(button)
+Gui.SS_Form1.cmd_Print.Caption("Print")
+Gui.SS_Form1.cmd_Print.size(1005,360)
+Gui.SS_Form1.cmd_Print.position(105,9165)
+Gui.SS_Form1.cmd_Print.setinternationalid(452800)
+Gui.SS_Form1.cmd_Print.tabstop(True)
+Gui.SS_Form1.cmd_Print.tabindex(21)
+Gui.SS_Form1.cmd_Print.Event(Click,cmd_Print_Click)
+Gui.Form..Create
+Gui.Form..Size(15360,10695)
+Gui.Form..MinX(0)
+Gui.Form..MinY(0)
+Gui.Form..Position(0,0)
+Gui.Form..BackColor(-2147483633)
+Gui.Form..MousePointer(0)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+Variable.Global.iKey.Declare(Long,0)
+Variable.Global.iLogid.declare(Long,0)
+Variable.Global.iBIRunID.declare(Long,0)
+Variable.Global.bMultiSelection.Declare(Boolean,False)
+Variable.Global.sProps.Declare(String)
+Variable.Global.sProps2.Declare(String)
+Variable.Global.QDec.Declare(String)
+Variable.Global.sDateRange.Declare(String)
+Variable.Global.sCustRange.Declare(String)
+Variable.Global.sShipIDRange.Declare(String)
+
+'BN, Feb 2022
+v.Global.sCreditMemoPluginsCustomers.Declare
+v.Global.sCreditMemoPluginsWhereClause.Declare
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+'Needs to run in CE3
+
+'TRIPLE INC. has a custom Order Shipments report that they need modified. Currently the report is pulling in information based on the ship_date. 
+'Credit memos are a duplicate record with the except of Invoice#, Date Invoiced, and credit_memo_flag.
+'What they want to see are the credit memos that occurred during the month the report is being run. 
+
+'Original author: AGupta
+'Original script: OE_OrderShipment_Cust_129.g2u (ATG) with OE_Order_Shipments_129.rpt 
+'=> 1st Modification: (unknown author) TRI_OE_OrderShipment_Cust_129.g2u  with OE_Order_Shipments_129_20200421.rpt 
+'=> 2nd Modification from 1st: BN, project 6609: GCG_6609_OrderShipment.g2u with GCG_6609_OrderShipments.rpt
+
+'6609:
+'Change Crystal Report file: add columns to z_OrdShipped_Cust: Invoice, UserID, Trmnl, CCC.
+'Invoice is used to left join to Order_Hist_Line in composite key (Order_No, Order_Suffix, Order_Line, Invoice)
+'UserID, Trmnl, CCC is used to isolate user/trmnl/ccc every running, and can be used to delete old data, without this, z_OrdShipped_Cust will be culmulated up to millions of records.
+
+'Common logic: get data from data layer object: Invoice and shipment, join them into a table which populates the Crystal Report.
+'Modification in program: add field InvoiceNumber in objects. The datatable does not have credit memo (Credit_Memo_Flag <> 'Y'), so I added those records to the table based on user selection (date range, customer range). 
+'The Credit Memo records will be on Invoice Date, where other records are on Shipped Date
+
+F.Intrinsic.Control.SetErrorHandler("Main_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.iCon.Declare(Long)
+v.Local.sRet.Declare
+
+'BN, Feb 2022, alter table Z_ORDSHIPPED_CUST
+f.Intrinsic.UI.InvokeWaitDialog("Alter table Z_ORDSHIPPED_CUST (add Invoice Char(7),add UserID Char(8),add Trmnl Char(3),add CCC Char(3))...")
+f.ODBC.Connection!fieldCheck.OpenCompanyConnection
+f.ODBC.Connection!fieldCheck.ExecuteAndReturn("Select Xf$Name As TableName,F1.XE$Name As FieldName,F1.Xe$DataType as DataType FROM X$File INNER JOIN X$Field F1 On F1.XE$File = XF$ID WHERE UCASE(RTRIM(Xf$Name))= 'Z_ORDSHIPPED_CUST' and UCASE(RTRIM(XE$Name)) in ('INVOICE','USERID','TRMNL','CCC')",v.Local.sRet)
+f.Intrinsic.Control.If(v.Ambient.ExecuteAndReturnEOF)
+	f.ODBC.Connection!fieldCheck.Execute("Alter table Z_ORDSHIPPED_CUST (add Invoice Char(7),add UserID Char(8),add Trmnl Char(3),add CCC Char(3))")
+f.Intrinsic.Control.EndIf
+f.ODBC.Connection!fieldCheck.Close
+f.Intrinsic.UI.CloseWaitDialog
+
+F.Global.Object.CreateDB("GlobalDB",V.Caller.CompanyCode,V.Ambient.DBServerName,True,V.Local.iCon)
+GUI.SS_Form1..ApplyTranslation
+GUI.SS_Form1.chk_InclFreight.Value("0")
+GUI.SS_Form1..Show
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Main_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: BIR_OE_OrderShipment_Customer.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+Program.Sub.Main.End
+
+Program.Sub.cmd_Print_Click.Start
+F.Intrinsic.Control.SetErrorHandler("cmd_Print_Click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.iCon.Declare(Long)
+v.Local.dDateStart.Declare
+v.Local.dDateEnd.Declare
+v.Local.sCustomerRangeListviewContent.Declare
+v.Local.sSQL.Declare
+
+'BN, Feb 2022 - Just in case All Customers is unchecked but the listview is empty
+GUI.SS_Form1.lvw1_Cust.RetrieveAllListItems(V.Local.sCustomerRangeListviewContent)
+f.Intrinsic.Control.If(v.Local.sCustomerRangeListviewContent,=,"***NORETURN***",and,v.Screen.SS_Form1!chk_AllCustomers.Value,=,0)
+	f.Intrinsic.UI.Msgbox("All Customers is unchecked and Customer ranges are not selected.","Invalid")
+	f.Intrinsic.Control.ExitSub
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.UI.InvokeWaitDialog("Retrieving data...")
+GUI.SS_Form1..Visible(False)
+
+'Option to set how many decimals will be used for the Quantity field
+F.Global.General.ReadOption("400714",1,"0",0,V.Global.QDec)
+
+'Setting the RunId and identifying the Report ID
+F.Global.BI.GetRunID(V.Global.iBIRunID)
+F.Intrinsic.Control.If(V.Ambient.IsInIDE,=,True)
+	F.Global.BI.StartLogging(V.Global.iBIRunID,75,0,"",V.Global.iLogid)
+F.Intrinsic.Control.Else
+	F.Global.BI.StartLogging(V.Global.iBIRunID,-1,-1,"",V.Global.iLogid)
+F.Intrinsic.Control.EndIf
+
+'Properties for Invoice Lines
+V.Global.sProps.Set("IH.ShipmentSequence*!*IH.SalesOrderNumber*!*IH.InvoiceNumber*!*IH.Shipment-Delivery-CustomerShipTo-CustomerShipToNumber*!*IH.Shipment-Delivery-ShippedDate*!*IH.Shipment-SalesOrder-Information-OrderDate*!*")
+V.Global.sProps.Append("IH.Shipment-SalesOrderShipTo-Shipping-Address-City*!*IH.Shipment-SalesOrder-Information-CustomerPurchaseOrderNumber*!*IH.Shipment-SalesOrder-Customer-CustomerNumber*!*")
+V.Global.sProps.Append("IH.Shipment-SalesOrder-Billing-Address-Name*!*IH.Shipment-SalesOrderShipTo-Delivery-ARShipVia-Information-Description*!*")
+V.Global.sProps.Append("IL.ShipmentLine-SalesOrderLine-Part-LocationCode*!*IL.ShipmentLine-SalesOrderLine-Quantity-Ordered*!*")
+V.Global.sProps.Append("IL.ShipmentLine-Quantity-Shipped*!*IL.ShipmentLine-SalesOrderLine-Information-Type*!*IL.ShipmentLine-SalesOrderLine-Delivery-DueDate*!*IL.Information-IsCreditMemo*!*")
+V.Global.sProps.Append("IL.ShipmentLine-SalesOrderLine-Part-PartNumber*!*IL.ShipmentLine-SalesOrderLine-Part-PartNumberRevision*!*IL.ShipmentLine-SalesOrderLine-Part-Description-Primary*!*")
+V.Global.sProps.Append("IL.ShipmentLine-SalesOrderLine-Part-Information-ProductLine-ProductLineCode*!*IL.SalesOrderLineNumber")
+
+'Properties for Shipment Lines
+V.Global.sProps2.Set("SH.Delivery-ShippedDate*!*SH.SalesOrder-Customer-CustomerNumber*!*SH.SalesOrder-Information-CustomerPurchaseOrderNumber*!*SH.SalesOrder-Information-OrderDate*!*SH.SalesOrderNumber*!*")
+V.Global.sProps2.Append("SH.ShipmentSequence*!*SH.Delivery-CustomerShipTo-CustomerShipToNumber*!*SH.SalesOrderShipTo-Delivery-ARShipVia-Information-Description*!*SH.Information-Status*!*SH.SalesOrderShipTo-Shipping-Address-City*!*")
+V.Global.sProps2.Append("SH.SalesOrder-Billing-Address-Name*!*")
+V.Global.sProps2.Append("SL.SalesOrderLine-Delivery-DueDate*!*SL.SalesOrderLine-Information-Type*!*SL.SalesOrderLine-Part-LocationCode*!*SL.SalesOrderLine-Part-Description-Primary*!*SL.SalesOrderLineNumber*!*")
+V.Global.sProps2.Append("SL.SalesOrderLine-Part-PartNumber*!*SL.SalesOrderLine-Part-PartNumberRevision*!*SL.SalesOrderLine-Part-Information-ProductLine-ProductLineCode*!*SL.SalesOrderLine-Quantity-Ordered*!*")
+V.Global.sProps2.Append("SL.Quantity-Shipped*!*SL.SalesOrderLine-Delivery-CustomerShipTo-CustomerShipToNumber")
+
+'Creating object instances
+F.Global.Object.Create("oInvoiceCR1","Sales.Invoicing.InvoiceLines","GlobalDB",V.Local.iCon)
+F.Global.Object.Create("oInvoiceCR2","Sales.Invoicing.Invoices","GlobalDB",V.Local.iCon)
+F.Global.Object.Create("oInvoiceCR3","Sales.Shipping.ShipmentLines","GlobalDB",V.Local.iCon)
+F.Global.Object.Create("oInvoiceCR4","Sales.Shipping.Shipments","GlobalDB",V.Local.iCon)
+
+F.Global.Object.Create("oInvoiceCL","Sales.Invoicing.InvoiceLines","GlobalDB",V.Local.iCon)
+F.Global.Object.Create("oInvoiceC","Sales.Invoicing.Invoices","GlobalDB",V.Local.iCon)
+F.Global.Object.Create("oInvoiceCS","Sales.Shipping.ShipmentLines","GlobalDB",V.Local.iCon)
+F.Global.Object.Create("oInvoiceCSH","Sales.Shipping.Shipments","GlobalDB",V.Local.iCon)
+
+'BN, Feb 2022
+v.Local.dDateStart.Set(v.Screen.SS_Form1!dtp_BegDate.Value)
+v.Local.dDateEnd.Set(v.Screen.SS_Form1!dtp_EndDate.Value)
+
+'BN, Feb 22 2022
+v.Global.sCreditMemoPluginsWhereClause.Set("Where Credit_Memo_Flag = 'Y'")
+
+F.Intrinsic.Control.If(V.Screen.SS_Form1!chk_AllDates.Value,=,1,"AND",V.Screen.SS_Form1!chk_AllCustomers.Value,=,1)
+	F.Intrinsic.Control.CallSub(Print_AllShipments)
+F.Intrinsic.Control.ElseIf(V.Screen.SS_Form1!chk_AllDates.Value,=,0,"AND",V.Screen.SS_Form1!chk_AllCustomers.Value,=,1)
+	'BN, Feb 2022
+	f.Intrinsic.String.Build("{0} and (Date_Invoice between '{1}' and '{2}')",v.Global.sCreditMemoPluginsWhereClause,v.Local.dDateStart.PervasiveDate,v.Local.dDateEnd.PervasiveDate,v.Global.sCreditMemoPluginsWhereClause)
+	
+	F.Intrinsic.Control.CallSub(Print_DateRange)
+F.Intrinsic.Control.Else
+
+	F.Intrinsic.Control.CallSub(Listview_Loop_Cust)
+	
+	'BN, Feb 2022
+	f.Intrinsic.Control.If(V.Screen.SS_Form1!chk_AllDates.Value,=,0)
+		'with date range
+		f.Intrinsic.String.Build("{0} and (Date_Invoice between '{1}' and '{2}') and ({3})",v.Global.sCreditMemoPluginsWhereClause,v.Local.dDateStart.PervasiveDate,v.Local.dDateEnd.PervasiveDate,v.Global.sCreditMemoPluginsCustomers,v.Global.sCreditMemoPluginsWhereClause)				
+	f.Intrinsic.Control.Else
+		'with all dates
+		f.Intrinsic.String.Build("{0} and ({1})",v.Global.sCreditMemoPluginsWhereClause,v.Global.sCreditMemoPluginsCustomers,v.Global.sCreditMemoPluginsWhereClause)
+	f.Intrinsic.Control.EndIf		
+	
+F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.If(V.DataTable.dtOrdShip.Exists,=,True,"OR",V.DataTable.dtOrdShips.Exists,=,True)
+	F.Intrinsic.Control.If(V.DataTable.dtOrdShip.RowCount,>,0,"OR",V.DataTable.dtOrdShips.RowCount,>,0)
+		'Filter Order Shipment Records
+		F.Intrinsic.Control.CallSub(Filter_OrdShipment)		
+		
+		'Merge Two DataTables
+		F.Intrinsic.Control.CallSub(Merge_DataTable)
+		
+		'BN, Feb 2022
+		'Get Credit Memo
+		f.Intrinsic.String.Build("Select ORDER_NO as OrderNo,ORDER_SUFFIX as OrderSeq,ORDER_LINE as OrderLine,CUSTOMER as CustomerID,NAME_CUST_SHIP as CustomerName,DATE_ORDER as OrderDate,DATE_SHIPPED as ShippedDate,DATE_DUE as DueDate,SHIP_VIA as ShipVia,CUSTOMER_SHIP as CustomerShipTo,PART,Substring(Part,18,3) as PartRevision,DESCRIPTION as PartDesc,LOCATION,PRODUCT_LINE as ProductLine,CUSTOMER_PO as CustomerPO,CITY_SHIP as ShipCity,QTY_SHIPPED as QuantityShipped,QTY_ORDERED as QuantityOrdered,Invoice as InvoiceNumber from V_Order_Hist_Line {0}",v.Global.sCreditMemoPluginsWhereClause,v.Local.sSQL)
+		f.ODBC.Connection!conxCM.OpenCompanyConnection
+		f.Data.DataTable.CreateFromSQL("dtCM","conxCM",v.Local.sSQL,True)
+		f.ODBC.Connection!conxCM.Close		
+		f.Data.DataTable.Merge("dtCM","dtOrdShipmt",False,2)
+		f.Data.DataTable.Close("dtCM")
+				
+		'Add Expression Columns		
+		F.Intrinsic.Control.CallSub(Add_Expression_Columns)
+		'Filter DataTable
+		F.Intrinsic.Control.CallSub(Filter_DataTable)
+		'Load to Z Table
+		F.Intrinsic.Control.CallSub(Load_To_Table)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+'Setting the date range to display on the crystal report.
+F.Intrinsic.Control.If(V.Screen.SS_Form1!chk_AllDates.Value,<>,1)
+	F.Intrinsic.String.Build("Ship Dates: {0} - {1}",V.Screen.SS_Form1!dtp_BegDate.Value,V.Screen.SS_Form1!dtp_EndDate.Value,V.Global.sDateRange)
+F.Intrinsic.Control.EndIf
+
+f.Intrinsic.UI.CloseWaitDialog
+F.Global.BI.StopLogging(V.Global.iLogid)
+F.Intrinsic.Control.CallSub(CallBI)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmd_Print_Click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: BIR_OE_OrderShipment_Customer.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(SS_Form1_Unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.cmd_Print_Click.End
+
+Program.Sub.Load_To_Table.Start
+'Load to z table.
+V.Local.sFm.Declare(String)
+v.Local.sSQL.Declare
+'Add runid column
+F.Data.DataTable.AddColumn("dtOrdShipment","BIRUNID","Long",V.Global.iBIRunID)
+'Map to SQL Table
+V.Local.sFm.Set("BIRUNID@!@BIRUNID")
+V.Local.sFm.Append("*!*OrderNumber@!@ORDER_NO")
+V.Local.sFm.Append("*!*OrderSequence@!@ORDER_SEQ")
+V.Local.sFm.Append("*!*OrderLn@!@ORDER_LINE")
+V.Local.sFm.Append("*!*CustomerID@!@CUSTOMER")
+V.Local.sFm.Append("*!*CustomerName@!@NAME_CUSTOMER")
+V.Local.sFm.Append("*!*OrderDate@!@ORDER_DATE")
+V.Local.sFm.Append("*!*ShippedDate@!@SHIPPED_DATE")
+V.Local.sFm.Append("*!*DueDate@!@PROM_DATE")
+V.Local.sFm.Append("*!*ShipVia@!@SHIP_VIA")
+V.Local.sFm.Append("*!*CustomerShipTo@!@CUST_SHIPTO")
+V.Local.sFm.Append("*!*Part@!@PART")
+V.Local.sFm.Append("*!*PartRevision@!@REV")
+V.Local.sFm.Append("*!*PartDesc@!@PART_DESC")
+V.Local.sFm.Append("*!*Location@!@LOCATION")
+V.Local.sFm.Append("*!*ProductLine@!@PROD_LINE")
+V.Local.sFm.Append("*!*CustomerPO@!@CUSTOMER_PO")
+V.Local.sFm.Append("*!*ShipCity@!@SHIP_CITY")
+V.Local.sFm.Append("*!*QuantityShipped@!@QTY_SHIPPED")
+V.Local.sFm.Append("*!*QuantityOrdered@!@QTY_ORDERED")
+V.Local.sFm.Append("*!*FreightFlag@!@FREIGHT_FLAG")
+'BN, Feb 2022
+V.Local.sFm.Append("*!*InvoiceNumber@!@Invoice")
+V.Local.sFm.Append("*!*UserID@!@UserID")
+V.Local.sFm.Append("*!*Trmnl@!@Trmnl")
+V.Local.sFm.Append("*!*CCC@!@CCC")
+
+f.Data.DataTable.AddColumn("dtOrdShipment","UserID","String",v.Caller.User)
+f.Data.DataTable.AddColumn("dtOrdShipment","Trmnl","String",v.Caller.Terminal)
+f.Data.DataTable.AddColumn("dtOrdShipment","CCC","String",v.Caller.CompanyCode)
+
+f.Intrinsic.String.Build("Delete from Z_ORDSHIPPED_CUST where UserID = '{0}' and Trmnl = '{1}' and CCC = '{2}'",v.Caller.User,v.Caller.Terminal,v.Caller.CompanyCode,v.Local.sSQL)
+F.ODBC.Connection!conx.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+f.ODBC.Connection!conx.Execute(v.Local.sSQL)
+
+'Save to db.
+F.Data.DataTable.SaveToDB("dtOrdShipment","conx","Z_ORDSHIPPED_CUST","",128,V.Local.sFm)
+F.ODBC.Connection!conx.Close
+
+Program.Sub.Load_To_Table.End
+
+Program.Sub.Filter_OrdShipment.Start
+F.Intrinsic.Control.SetErrorHandler("Filter_OrdShipment_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sFilter.Declare(String)
+V.Local.sFilter2.Declare(String)
+
+
+V.Local.sFilter.Set("([Information-IsCreditMemo] = False)")
+V.Local.sFilter2.Set("[Information-Status] <> 0")
+
+F.Intrinsic.Control.If(V.DataTable.dtOrdShip.Exists,=,True)
+	F.Intrinsic.Control.If(V.DataTable.dtOrdShip.RowCount,>,0)
+		F.Data.DataView.Create("dtOrdShip","dvOrdShip",22,V.Local.sFilter,"")
+		F.Data.DataView.ToDataTable("dtOrdShip","dvOrdShip","dtOrdShipt",True)
+		
+		F.Data.DataView.Close("dtOrdShip","dvOrdShip")
+		F.Data.DataTable.Close("dtOrdShip")
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.DataTable.dtOrdShips.Exists,=,True)
+	F.Intrinsic.Control.If(V.DataTable.dtOrdShips.RowCount,>,0)
+		F.Data.DataView.Create("dtOrdShips","dvOrdShips",22,V.Local.sFilter2,"")
+		F.Data.DataView.ToDataTable("dtOrdShips","dvOrdShips","dtOrdShipm",True)
+		
+		F.Data.DataView.Close("dtOrdShips","dvOrdShips")
+		F.Data.DataTable.Close("dtOrdShips")
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Filter_OrdShipment_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: BIR_OE_OrderShipment_Customer.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(SS_Form1_Unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.Filter_OrdShipment.End
+
+Program.Sub.Merge_DataTable.Start
+F.Intrinsic.Control.SetErrorHandler("Merge_DataTable_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.i.Declare(Long)
+
+F.Data.DataTable.Create("dtOrdShipmt",True)
+F.Data.DataTable.AddColumn("dtOrdShipmt","OrderNo","String")
+F.Data.DataTable.AddColumn("dtOrdShipmt","OrderSeq","String")
+F.Data.DataTable.AddColumn("dtOrdShipmt","OrderLine","String")
+F.Data.DataTable.AddColumn("dtOrdShipmt","CustomerID","String")
+F.Data.DataTable.AddColumn("dtOrdShipmt","CustomerName","String")
+F.Data.DataTable.AddColumn("dtOrdShipmt","OrderDate","Date")
+F.Data.DataTable.AddColumn("dtOrdShipmt","ShippedDate","Date")
+F.Data.DataTable.AddColumn("dtOrdShipmt","DueDate","Date")
+F.Data.DataTable.AddColumn("dtOrdShipmt","ShipVia","String")
+F.Data.DataTable.AddColumn("dtOrdShipmt","CustomerShipTo","String")
+F.Data.DataTable.AddColumn("dtOrdShipmt","Part","String")
+F.Data.DataTable.AddColumn("dtOrdShipmt","PartRevision","String")
+F.Data.DataTable.AddColumn("dtOrdShipmt","PartDesc","String")
+F.Data.DataTable.AddColumn("dtOrdShipmt","Location","String")
+F.Data.DataTable.AddColumn("dtOrdShipmt","ProductLine","String")
+F.Data.DataTable.AddColumn("dtOrdShipmt","CustomerPO","String")
+F.Data.DataTable.AddColumn("dtOrdShipmt","ShipCity","String")
+F.Data.DataTable.AddColumn("dtOrdShipmt","QuantityShipped","Float")
+F.Data.DataTable.AddColumn("dtOrdShipmt","QuantityOrdered","Float")
+F.Data.DataTable.AddColumn("dtOrdShipmt","LineType","Long")
+'BN, Feb 2022
+F.Data.DataTable.AddColumn("dtOrdShipmt","InvoiceNumber","String","")
+
+
+F.Intrinsic.Control.If(V.DataTable.dtOrdShipt.Exists,=,True)
+	F.Intrinsic.Control.If(V.DataTable.dtOrdShipt.RowCount,>,0)
+		F.Intrinsic.Control.For(V.Local.i,0,V.DataTable.dtOrdShipt.RowCount--,1)
+			F.Data.DataTable.AddRow("dtOrdShipmt","OrderNo",V.DataTable.dtOrdShipt(V.Local.i).SalesOrderNumber!FieldValTrim,"OrderSeq",V.DataTable.dtOrdShipt(V.Local.i).ShipmentSequence!FieldValTrim,"OrderLine",V.DataTable.dtOrdShipt(V.Local.i).SalesOrderLineNumber!FieldValTrim,"CustomerID",V.DataTable.dtOrdShipt(V.Local.i).Shipment-SalesOrder-Customer-CustomerNumber!FieldValTrim,"CustomerName",V.DataTable.dtOrdShipt(V.Local.i).Shipment-SalesOrder-Billing-Address-Name!FieldValTrim,"OrderDate",V.DataTable.dtOrdShipt(V.Local.i).Shipment-SalesOrder-Information-OrderDate!FieldVal,"ShippedDate",V.DataTable.dtOrdShipt(V.Local.i).Shipment-Delivery-ShippedDate!FieldVal,"DueDate",V.DataTable.dtOrdShipt(V.Local.i).ShipmentLine-SalesOrderLine-Delivery-DueDate!FieldVal,"ShipVia",V.DataTable.dtOrdShipt(V.Local.i).Shipment-SalesOrderShipTo-Delivery-ARShipVia-Information-Description!FieldValTrim,"CustomerShipTo",V.DataTable.dtOrdShipt(V.Local.i).Shipment-Delivery-CustomerShipTo-CustomerShipToNumber!FieldValTrim,"Part",V.DataTable.dtOrdShipt(V.Local.i).ShipmentLine-SalesOrderLine-Part-PartNumber!FieldValTrim,"PartRevision",V.DataTable.dtOrdShipt(V.Local.i).ShipmentLine-SalesOrderLine-Part-PartNumberRevision!FieldValTrim,"PartDesc",V.DataTable.dtOrdShipt(V.Local.i).ShipmentLine-SalesOrderLine-Part-Description-Primary!FieldValTrim,"Location",V.DataTable.dtOrdShipt(V.Local.i).ShipmentLine-SalesOrderLine-Part-LocationCode!FieldValTrim,"ProductLine",V.DataTable.dtOrdShipt(V.Local.i).ShipmentLine-SalesOrderLine-Part-Information-ProductLine-ProductLineCode!FieldValTrim,"CustomerPO",V.DataTable.dtOrdShipt(V.Local.i).Shipment-SalesOrder-Information-CustomerPurchaseOrderNumber!FieldValTrim,"ShipCity",V.DataTable.dtOrdShipt(V.Local.i).Shipment-SalesOrderShipTo-Shipping-Address-City!FieldValTrim,"QuantityShipped",V.DataTable.dtOrdShipt(V.Local.i).ShipmentLine-Quantity-Shipped!FieldVal,"QuantityOrdered",V.DataTable.dtOrdShipt(V.Local.i).ShipmentLine-SalesOrderLine-Quantity-Ordered!FieldVal,"LineType",V.DataTable.dtOrdShipt(V.Local.i).ShipmentLine-SalesOrderLine-Information-Type!FieldVal,"InvoiceNumber",V.DataTable.dtOrdShipt(V.Local.i).InvoiceNumber!FieldVal)
+		F.Intrinsic.Control.Next(V.Local.i)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.DataTable.dtOrdShipm.Exists,=,True)
+	F.Intrinsic.Control.If(V.DataTable.dtOrdShipm.RowCount,>,0)
+		F.Intrinsic.Control.For(V.Local.i,0,V.DataTable.dtOrdShipm.RowCount--,1)
+			F.Data.DataTable.AddRow("dtOrdShipmt","OrderNo",V.DataTable.dtOrdShipm(V.Local.i).SalesOrderNumber!FieldValTrim,"OrderSeq",V.DataTable.dtOrdShipm(V.Local.i).ShipmentSequence!FieldValTrim,"OrderLine",V.DataTable.dtOrdShipm(V.Local.i).SalesOrderLineNumber!FieldValTrim,"CustomerID",V.DataTable.dtOrdShipm(V.Local.i).SalesOrder-Customer-CustomerNumber!FieldValTrim,"CustomerName",V.DataTable.dtOrdShipm(V.Local.i).SalesOrder-Billing-Address-Name!FieldValTrim,"OrderDate",V.DataTable.dtOrdShipm(V.Local.i).SalesOrder-Information-OrderDate!FieldVal,"ShippedDate",V.DataTable.dtOrdShipm(V.Local.i).Delivery-ShippedDate!FieldVal,"DueDate",V.DataTable.dtOrdShipm(V.Local.i).SalesOrderLine-Delivery-DueDate!FieldVal,"ShipVia",V.DataTable.dtOrdShipm(V.Local.i).SalesOrderShipTo-Delivery-ARShipVia-Information-Description!FieldValTrim,"CustomerShipTo",V.DataTable.dtOrdShipm(V.Local.i).Delivery-CustomerShipTo-CustomerShipToNumber!FieldValTrim,"Part",V.DataTable.dtOrdShipm(V.Local.i).SalesOrderLine-Part-PartNumber!FieldValTrim,"PartRevision",V.DataTable.dtOrdShipm(V.Local.i).SalesOrderLine-Part-PartNumberRevision!FieldValTrim,"PartDesc",V.DataTable.dtOrdShipm(V.Local.i).SalesOrderLine-Part-Description-Primary!FieldValTrim,"Location",V.DataTable.dtOrdShipm(V.Local.i).SalesOrderLine-Part-LocationCode!FieldValTrim,"ProductLine",V.DataTable.dtOrdShipm(V.Local.i).SalesOrderLine-Part-Information-ProductLine-ProductLineCode!FieldValTrim,"CustomerPO",V.DataTable.dtOrdShipm(V.Local.i).SalesOrder-Information-CustomerPurchaseOrderNumber!FieldValTrim,"ShipCity",V.DataTable.dtOrdShipm(V.Local.i).SalesOrderShipTo-Shipping-Address-City!FieldValTrim,"QuantityShipped",V.DataTable.dtOrdShipm(V.Local.i).Quantity-Shipped!FieldVal,"QuantityOrdered",V.DataTable.dtOrdShipm(V.Local.i).SalesOrderLine-Quantity-Ordered!FieldVal,"LineType",V.DataTable.dtOrdShipm(V.Local.i).SalesOrderLine-Information-Type!FieldVal)
+		F.Intrinsic.Control.Next(V.Local.i)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Merge_DataTable_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: BIR_OE_OrderShipment_Customer.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(SS_Form1_Unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.Merge_DataTable.End
+
+Program.Sub.Filter_DataTable.Start
+F.Intrinsic.Control.SetErrorHandler("Filter_DataTable_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.strFilter.Declare(String)
+
+F.Intrinsic.Control.If(V.Screen.SS_Form1!chk_InclFreight.Value,=,1)
+	V.Local.strFilter.Set("([FreightFlag] = True) OR ([FreightFlag] = False)")
+F.Intrinsic.Control.Else
+	V.Local.strFilter.Set("[FreightFlag] = False")
+F.Intrinsic.Control.EndIf
+
+F.Data.DataView.Create("dtOrdShipmt","dvOrdShipmt",22,V.Local.strFilter,"")
+F.Data.DataView.ToDataTable("dtOrdShipmt","dvOrdShipmt","dtOrdShipment",True)
+
+F.Data.DataView.Close("dtOrdShipmt","dvOrdShipmt")
+F.Data.DataTable.Close("dtOrdShipmt")
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Filter_DataTable_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: BIR_OE_OrderShipment_Customer.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(SS_Form1_Unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.Filter_DataTable.End
+
+Program.Sub.Add_Expression_Columns.Start
+'Determine Freight Line
+F.Intrinsic.Control.CallSub(Column_Freight_Flag)
+'Order Number
+F.Intrinsic.Control.CallSub(Column_Order_Number)
+'Order Sequence
+F.Intrinsic.Control.CallSub(Column_Order_Sequence)
+'Order Line
+F.Intrinsic.Control.CallSub(Column_Order_Line)
+
+Program.Sub.Add_Expression_Columns.End
+
+Program.Sub.Column_Freight_Flag.Start
+'Freight Flag
+F.Data.DataTable.AddExpressionColumn("dtOrdShipmt","FreightFlag","Boolean","IIF([LineType] = 4, True, False)")
+
+Program.Sub.Column_Freight_Flag.End
+
+Program.Sub.Column_Order_Number.Start
+'Order Number
+F.Data.DataTable.AddExpressionColumn("dtOrdShipmt","OrderNumber","String","IIF(LEN([OrderNo]) = 6,'0' + [OrderNo],IIF(LEN([OrderNo]) = 5,'00' + [OrderNo],IIF(LEN([OrderNo]) = 4, '000' + [OrderNo],IIF(LEN([OrderNo]) = 3,'0000' + [OrderNo],IIF(LEN([OrderNo]) = 2,'00000' + [OrderNo],IIF(LEN([OrderNo]) = 1,'000000' + [OrderNo],[OrderNo]))))))")
+
+Program.Sub.Column_Order_Number.End
+
+Program.Sub.Column_Order_Sequence.Start
+'Order Sequence
+F.Data.DataTable.AddExpressionColumn("dtOrdShipmt","OrderSequence","String","IIF(LEN([OrderSeq]) = 3,'0' + [OrderSeq],IIF(LEN([OrderSeq]) = 2,'00' + [OrderSeq],IIF(LEN([OrderSeq]) = 1,'000' + [OrderSeq],[OrderSeq])))")
+
+Program.Sub.Column_Order_Sequence.End
+
+Program.Sub.Column_Order_Line.Start
+'Order Line
+F.Data.DataTable.AddExpressionColumn("dtOrdShipmt","OrderLn","String","IIF(LEN([OrderLine]) = 3, [OrderLine] + '0',IIF(LEN([OrderLine]) = 2,'0' + [OrderLine]+'0',IIF(LEN([OrderLine]) = 1,'00' + [OrderLine] + '0',[OrderLine])))")
+
+Program.Sub.Column_Order_Line.End
+
+Program.Sub.Print_AllShipments.Start
+F.Intrinsic.Control.SetErrorHandler("Print_AllShipments_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.iRet.Declare(Long)
+V.Local.iCon.Declare(Long)
+V.Local.i.Declare(Long)
+
+F.Intrinsic.Control.Try
+	F.Data.Linq.Join("Innerjoin","Object","oInvoiceC*!*IH",509,"      ","      ","zzzzzz","zzzzzz","01/01/1901","12/31/9999","Object","oInvoiceCL*!*IL",634,"0000000","IH.InvoiceNumber = IL.InvoiceNumber AND IH.SalesOrderNumber = IL.SalesOrderNumber AND IH.ShipmentSequence = IL.ShipmentSequence",V.Global.sProps,"","","","dtOrdShip",True)
+F.Intrinsic.Control.EndTry
+
+F.Intrinsic.Control.Try
+	F.Data.Linq.Join("Innerjoin","Object","oInvoiceCSH*!*SH",23,"0000000","01/01/1901","      ","      ","12/31/9999","zzzzzz","zzzzzz","Object","oInvoiceCS*!*SL",10,"0000000","SH.SalesOrderNumber = SL.SalesOrderNumber AND SH.ShipmentSequence = SL.ShipmentSequence",V.Global.sProps2,"","","","dtOrdShips",True)
+F.Intrinsic.Control.EndTry
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Print_AllShipments_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	'If no data found in data table, exitsub.
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,=,23300)
+		F.Global.Object.CloseConnection("GlobalDB",V.Local.iCon)
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+	Function.Intrinsic.String.Concat("Project: BIR_OE_OrderShipment_Customer.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.Print_AllShipments.End
+
+Program.Sub.Print_DateRange.Start
+F.Intrinsic.Control.SetErrorHandler("Print_DateRange_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.iCon.Declare(Long)
+V.Local.iRet.Declare(Long)
+V.Local.i.Declare(Long)
+
+F.Intrinsic.Control.Try
+	F.Data.Linq.Join("Innerjoin","Object","oInvoiceC*!*IH",509,"      ","      ","zzzzzz","zzzzzz",V.Screen.SS_Form1!dtp_BegDate.Value,V.Screen.SS_Form1!dtp_EndDate.Value,"Object","oInvoiceCL*!*IL",634,"0000000","IH.InvoiceNumber = IL.InvoiceNumber AND IH.SalesOrderNumber = IL.SalesOrderNumber AND IH.ShipmentSequence = IL.ShipmentSequence",V.Global.sProps,"","","","dtOrdShip",True)
+F.Intrinsic.Control.EndTry
+
+F.Intrinsic.Control.Try
+	F.Data.Linq.Join("Innerjoin","Object","oInvoiceCSH*!*SH",23,"0000000",V.Screen.SS_Form1!dtp_BegDate.Value,"      ","      ",V.Screen.SS_Form1!dtp_EndDate.Value,"zzzzzz","zzzzzz","Object","oInvoiceCS*!*SL",10,"0000000","SH.SalesOrderNumber = SL.SalesOrderNumber AND SH.ShipmentSequence = SL.ShipmentSequence",V.Global.sProps2,"","","","dtOrdShips",True)
+F.Intrinsic.Control.EndTry
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Print_DateRange_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	'If no data found in data table, exitsub.
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,=,23300)
+		F.Global.Object.CloseConnection("GlobalDB",V.Local.iCon)
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+	Function.Intrinsic.String.Concat("Project: BIR_OE_OrderShipment_Customer.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(SS_Form1_Unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.Print_DateRange.End
+
+Program.Sub.Listview_Loop_Cust.Start
+F.Intrinsic.Control.SetErrorHandler("Listview_Loop_Cust_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sRows.Declare(String)
+V.Local.iC.Declare(Long)
+V.Local.iOrd.Declare(Long)
+V.Local.sCustRange.Declare(String)
+V.Local.sRangePad1.Declare(String)
+V.Local.sRangePad2.Declare(String)
+V.Local.sError.Declare(String)
+
+'Checking Customer Range
+GUI.SS_Form1.lvw1_Cust.RetrieveAllListItems(V.Local.sRows)
+
+F.Intrinsic.Control.If(V.Local.sRows,<>,"***NORETURN***")
+	F.Intrinsic.String.Split(V.Local.sRows,"*!*",V.Local.sRows)
+	F.Intrinsic.Control.For(V.Local.iC,0,V.Local.sRows.UBound,1)
+		GUI.SS_Form1.lvw1_Cust.RetrieveItemOrdinal(V.Local.sRows(V.Local.iC),V.Local.iOrd)
+		V.Local.sCustRange.Set(V.Screen.SS_Form1!lvw1_Cust.ListItemTextExtended(V.Local.iOrd))
+		F.Intrinsic.String.Split(V.Local.sCustRange,"*!*",V.Local.sCustRange)
+		F.Intrinsic.String.RPad(V.Local.sCustRange(0)," ",6,V.Local.sRangePad1)
+		F.Intrinsic.String.RPad(V.Local.sCustRange(1)," ",6,V.Local.sRangePad2)
+		
+		'BN, Feb 2022
+		f.Intrinsic.Control.If(v.Global.sCreditMemoPluginsCustomers,=,"")
+			f.Intrinsic.String.Build("(Customer between '{0}' and '{1}')",v.Local.sRangePad1,v.Local.sRangePad2,v.Global.sCreditMemoPluginsCustomers)
+		f.Intrinsic.Control.Else
+			f.Intrinsic.String.Build("{0} OR (Customer between '{1}' and '{2}')",v.Global.sCreditMemoPluginsCustomers,v.Local.sRangePad1,v.Local.sRangePad2,v.Global.sCreditMemoPluginsCustomers)
+		f.Intrinsic.Control.EndIf
+		
+		F.Intrinsic.Control.If(V.Local.iC,>=,1)
+			'Multi selection flag used for crystal report.
+			V.Global.bMultiSelection.Set(True)
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.If(V.Screen.SS_Form1!chk_AllDates.Value,=,1,"AND",V.Screen.SS_Form1!chk_AllCustomers.Value,=,0)
+			F.Intrinsic.Control.CallSub(Print_CustomerRange,"BegCust",V.Local.sRangePad1,"EndCust",V.Local.sRangePad2,"sRows",V.Local.sRows.UBound)
+		F.Intrinsic.Control.ElseIf(V.Screen.SS_Form1!chk_AllDates.Value,=,0,"AND",V.Screen.SS_Form1!chk_AllCustomers.Value,=,0)
+			F.Intrinsic.Control.CallSub(Print_DateCustomerRange,"BegCust",V.Local.sRangePad1,"EndCust",V.Local.sRangePad2,"sRows",V.Local.sRows.UBound)
+		F.Intrinsic.Control.EndIf
+		
+	F.Intrinsic.Control.Next(V.Local.iC)
+F.Intrinsic.Control.EndIf
+
+
+'Setting the customer range. Will use the line below to pass to crystal on CallBI.
+F.Intrinsic.Control.If(V.Local.sRows.UBound,=,0,"AND",V.Local.sRows,<>,"***NORETURN***")
+	F.Intrinsic.Control.If(V.Local.sCustRange(0),<>,V.Local.sCustRange(1))
+		F.Intrinsic.String.Build("Customers: {0} - {1}",V.Local.sCustRange(0),V.Local.sCustRange(1),V.Global.sCustRange)
+	F.Intrinsic.Control.Else
+		F.Intrinsic.String.Build("Customer: {0}",V.Local.sCustRange(0),V.Global.sCustRange)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Elseif(V.Local.sRows.UBound,>,0)
+	V.Global.sCustRange.Set("Multiple Customers Selected")
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Listview_Loop_Cust_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: BIR_OE_OrderShipment_Customer.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(SS_Form1_Unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.Listview_Loop_Cust.End
+
+Program.Sub.Print_CustomerRange.Start
+F.Intrinsic.Control.SetErrorHandler("Print_CustomerRange_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.iCon.Declare(Long)
+V.Local.iRet.Declare(Long)
+V.Local.i.Declare(Long)
+V.Local.sRows.Declare(String)
+
+'Checking for Shipto ID range
+GUI.SS_Form1.lvw1_ShiptoID.RetrieveAllListItems(V.Local.sRows)
+
+F.Intrinsic.Control.If(V.Screen.SS_Form1!chk_AllShipIDs.Value,=,1)
+	F.Intrinsic.Control.If(V.Args.BegCust,=,V.Args.EndCust,"AND",V.Args.sRows,=,0)
+		
+		F.Intrinsic.Control.If(V.DataTable.dtOrdShip.Exists,=,True)
+			F.Intrinsic.Control.Try
+				F.Data.Linq.Join("Innerjoin","Object","oInvoiceCR2*!*IH",509,V.Args.BegCust,"      ",V.Args.EndCust,"zzzzzz","01/01/1901","12/31/9999","Object","oInvoiceCR1*!*IL",634,"0000000","IH.InvoiceNumber = IL.InvoiceNumber AND IH.SalesOrderNumber = IL.SalesOrderNumber AND IH.ShipmentSequence = IL.ShipmentSequence",V.Global.sProps,"","","","dtRet",True)
+			F.Intrinsic.Control.EndTry
+			F.Intrinsic.Control.If(V.DataTable.dtRet.Exists,=,True)
+				F.Data.DataTable.Merge("dtRet","dtOrdShip",True,4)
+				F.Data.DataTable.Close("dtRet")
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Else
+			F.Intrinsic.Control.Try
+				F.Data.Linq.Join("Innerjoin","Object","oInvoiceC*!*IH",509,V.Args.BegCust,"      ",V.Args.EndCust,"zzzzzz","01/01/1901","12/31/9999","Object","oInvoiceCL*!*IL",634,"0000000","IH.InvoiceNumber = IL.InvoiceNumber AND IH.SalesOrderNumber = IL.SalesOrderNumber AND IH.ShipmentSequence = IL.ShipmentSequence",V.Global.sProps,"","","","dtOrdShip",True)
+			F.Intrinsic.Control.EndTry
+		F.Intrinsic.Control.EndIf
+		
+		F.Intrinsic.Control.If(V.DataTable.dtOrdShips.Exists,=,True)
+			F.Intrinsic.Control.Try
+				F.Data.Linq.Join("Innerjoin","Object","oInvoiceCR4*!*SH",23,"0000000","01/01/1901",V.Args.BegCust,"      ","12/31/9999",V.Args.EndCust,"zzzzzz","Object","oInvoiceCR3*!*SL",10,"0000000","SH.SalesOrderNumber = SL.SalesOrderNumber AND SH.ShipmentSequence = SL.ShipmentSequence",V.Global.sProps2,"","","","dtRet",True)		
+			F.Intrinsic.Control.EndTry
+			F.Intrinsic.Control.If(V.DataTable.dtRet.Exists,=,True)
+				F.Data.DataTable.Merge("dtRet","dtOrdShips",True,4)
+				F.Data.DataTable.Close("dtRet")
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Else
+			F.Intrinsic.Control.Try
+				F.Data.Linq.Join("Innerjoin","Object","oInvoiceCSH*!*SH",23,"0000000","01/01/1901",V.Args.BegCust,"      ","12/31/9999",V.Args.EndCust,"zzzzzz","Object","oInvoiceCS*!*SL",10,"0000000","SH.SalesOrderNumber = SL.SalesOrderNumber AND SH.ShipmentSequence = SL.ShipmentSequence",V.Global.sProps2,"","","","dtOrdShips",True)
+			F.Intrinsic.Control.EndTry
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Else
+		F.Intrinsic.UI.MsgBox("Request ONLY 1 Customer when requesting with Shipto ID")
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.ElseIf(V.Screen.SS_Form1!chk_AllShipIDs.Value,=,0,"AND",V.Local.sRows,=,"***NORETURN***")
+	F.Intrinsic.Control.If(V.DataTable.dtOrdShip.Exists,=,True)
+		F.Intrinsic.Control.Try
+			F.Data.Linq.Join("Innerjoin","Object","oInvoiceCR2*!*IH",509,V.Args.BegCust,"      ",V.Args.EndCust,"zzzzzz","01/01/1901","12/31/9999","Object","oInvoiceCR1*!*IL",634,"0000000","IH.InvoiceNumber = IL.InvoiceNumber AND IH.SalesOrderNumber = IL.SalesOrderNumber AND IH.ShipmentSequence = IL.ShipmentSequence",V.Global.sProps,"","","","dtRet",True)
+		F.Intrinsic.Control.EndTry
+		F.Intrinsic.Control.If(V.DataTable.dtRet.Exists,=,True)
+			F.Data.DataTable.Merge("dtRet","dtOrdShip",True,4)
+			F.Data.DataTable.Close("dtRet")
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Else
+		F.Intrinsic.Control.Try
+			F.Data.Linq.Join("Innerjoin","Object","oInvoiceC*!*IH",509,V.Args.BegCust,"      ",V.Args.EndCust,"zzzzzz","01/01/1901","12/31/9999","Object","oInvoiceCL*!*IL",634,"0000000","IH.InvoiceNumber = IL.InvoiceNumber AND IH.SalesOrderNumber = IL.SalesOrderNumber AND IH.ShipmentSequence = IL.ShipmentSequence",V.Global.sProps,"","","","dtOrdShip",True)
+		F.Intrinsic.Control.EndTry
+	F.Intrinsic.Control.EndIf
+		
+	F.Intrinsic.Control.If(V.DataTable.dtOrdShips.Exists,=,True)
+		F.Intrinsic.Control.Try
+			F.Data.Linq.Join("Innerjoin","Object","oInvoiceCR4*!*SH",23,"0000000","01/01/1901",V.Args.BegCust,"      ","12/31/9999",V.Args.EndCust,"zzzzzz","Object","oInvoiceCR3*!*SL",10,"0000000","SH.SalesOrderNumber = SL.SalesOrderNumber AND SH.ShipmentSequence = SL.ShipmentSequence",V.Global.sProps2,"","","","dtRet",True)		
+		F.Intrinsic.Control.EndTry
+		F.Intrinsic.Control.If(V.DataTable.dtRet.Exists,=,True)
+			F.Data.DataTable.Merge("dtRet","dtOrdShips",True,4)
+			F.Data.DataTable.Close("dtRet")
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Else
+		F.Intrinsic.Control.Try
+			F.Data.Linq.Join("Innerjoin","Object","oInvoiceCSH*!*SH",23,"0000000","01/01/1901",V.Args.BegCust,"      ","12/31/9999",V.Args.EndCust,"zzzzzz","Object","oInvoiceCS*!*SL",10,"0000000","SH.SalesOrderNumber = SL.SalesOrderNumber AND SH.ShipmentSequence = SL.ShipmentSequence",V.Global.sProps2,"","","","dtOrdShips",True)
+		F.Intrinsic.Control.EndTry
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.ElseIf(V.Screen.SS_Form1!chk_AllShipIDs.Value,=,0,"AND",V.Local.sRows,<>,"***NORETURN***")
+	F.Intrinsic.Control.If(V.Args.BegCust,=,V.Args.EndCust,"AND",V.Args.sRows,=,0)
+		F.Intrinsic.Control.CallSub(Listview_Loop_ShipID,"BegCust",V.Args.BegCust,"EndCust",V.Args.EndCust,"sRows",V.Args.sRows)
+	F.Intrinsic.Control.Else
+		F.Intrinsic.UI.MsgBox("Request ONLY 1 Customer when requesting with Shipto ID")
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Print_CustomerRange_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	'If no data found in data table, exitsub.
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,=,23300)
+		F.Global.Object.CloseConnection("GlobalDB",V.Local.iCon)
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+	Function.Intrinsic.String.Concat("Project: BIR_OE_OrderShipment_Customer.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.Print_CustomerRange.End
+
+Program.Sub.Print_DateCustomerRange.Start
+F.Intrinsic.Control.SetErrorHandler("Print_DateCustomerRange_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.iCon.Declare(Long)
+V.Local.iRet.Declare(Long)
+V.Local.i.Declare(Long)
+V.Local.sRows.Declare(String)
+
+'Checking for Shipto ID range
+GUI.SS_Form1.lvw1_ShiptoID.RetrieveAllListItems(V.Local.sRows)
+
+F.Intrinsic.Control.If(V.Screen.SS_Form1!chk_AllShipIDs.Value,=,1)
+	F.Intrinsic.Control.If(V.Args.BegCust,=,V.Args.EndCust,"AND",V.Args.sRows,=,0)
+	
+		F.Intrinsic.Control.If(V.DataTable.dtOrdShip.Exists,=,True)
+			F.Intrinsic.Control.Try
+				F.Data.Linq.Join("Innerjoin","Object","oInvoiceCR2*!*IH",509,V.Args.BegCust,"      ",V.Args.EndCust,"zzzzzz",V.Screen.SS_Form1!dtp_BegDate.Value,V.Screen.SS_Form1!dtp_EndDate.Value,"Object","oInvoiceCR1*!*IL",634,"0000000","IH.InvoiceNumber = IL.InvoiceNumber AND IH.SalesOrderNumber = IL.SalesOrderNumber AND IH.ShipmentSequence = IL.ShipmentSequence",V.Global.sProps,"","","","dtRet",True)
+			F.Intrinsic.Control.EndTry
+			F.Intrinsic.Control.If(V.DataTable.dtRet.Exists,=,True)
+				F.Data.DataTable.Merge("dtRet","dtOrdShip",True,4)
+				F.Data.DataTable.Close("dtRet")
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Else
+			F.Intrinsic.Control.Try
+				F.Data.Linq.Join("Innerjoin","Object","oInvoiceC*!*IH",509,V.Args.BegCust,"      ",V.Args.EndCust,"zzzzzz",V.Screen.SS_Form1!dtp_BegDate.Value,V.Screen.SS_Form1!dtp_EndDate.Value,"Object","oInvoiceCL*!*IL",634,"0000000","IH.InvoiceNumber = IL.InvoiceNumber AND IH.SalesOrderNumber = IL.SalesOrderNumber AND IH.ShipmentSequence = IL.ShipmentSequence",V.Global.sProps,"","","","dtOrdShip",True)
+			F.Intrinsic.Control.EndTry
+		F.Intrinsic.Control.EndIf
+		
+		F.Intrinsic.Control.If(V.DataTable.dtOrdShips.Exists,=,True)
+			F.Intrinsic.Control.Try
+				F.Data.Linq.Join("Innerjoin","Object","oInvoiceCR4*!*SH",23,"0000000",V.Screen.SS_Form1!dtp_BegDate.Value,V.Args.BegCust,"      ",V.Screen.SS_Form1!dtp_EndDate.Value,V.Args.EndCust,"zzzzzz","Object","oInvoiceCR3*!*SL",10,"0000000","SH.SalesOrderNumber = SL.SalesOrderNumber AND SH.ShipmentSequence = SL.ShipmentSequence",V.Global.sProps2,"","","","dtRet",True)
+			F.Intrinsic.Control.EndTry
+			F.Intrinsic.Control.If(V.DataTable.dtRet.Exists,=,True)
+				F.Data.DataTable.Merge("dtRet","dtOrdShips",True,4)
+				F.Data.DataTable.Close("dtRet")
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Else
+			F.Intrinsic.Control.Try
+				F.Data.Linq.Join("Innerjoin","Object","oInvoiceCSH*!*SH",23,"0000000",V.Screen.SS_Form1!dtp_BegDate.Value,V.Args.BegCust,"      ",V.Screen.SS_Form1!dtp_EndDate.Value,V.Args.EndCust,"zzzzzz","Object","oInvoiceCS*!*SL",10,"0000000","SH.SalesOrderNumber = SL.SalesOrderNumber AND SH.ShipmentSequence = SL.ShipmentSequence",V.Global.sProps2,"","","","dtOrdShips",True)
+			F.Intrinsic.Control.EndTry
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Else
+		F.Intrinsic.UI.MsgBox("Request ONLY 1 Customer when requesting with Shipto ID")
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.ElseIf(V.Screen.SS_Form1!chk_AllShipIDs.Value,=,0,"AND",V.Local.sRows,=,"***NORETURN***")
+
+	F.Intrinsic.Control.If(V.DataTable.dtOrdShip.Exists,=,True)
+		F.Intrinsic.Control.Try
+			F.Data.Linq.Join("Innerjoin","Object","oInvoiceCR2*!*IH",509,V.Args.BegCust,"      ",V.Args.EndCust,"zzzzzz",V.Screen.SS_Form1!dtp_BegDate.Value,V.Screen.SS_Form1!dtp_EndDate.Value,"Object","oInvoiceCR1*!*IL",634,"0000000","IH.InvoiceNumber = IL.InvoiceNumber AND IH.SalesOrderNumber = IL.SalesOrderNumber AND IH.ShipmentSequence = IL.ShipmentSequence",V.Global.sProps,"","","","dtRet",True)
+		F.Intrinsic.Control.EndTry
+		F.Intrinsic.Control.If(V.DataTable.dtRet.Exists,=,True)
+			F.Data.DataTable.Merge("dtRet","dtOrdShip",True,4)
+			F.Data.DataTable.Close("dtRet")
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Else
+		F.Intrinsic.Control.Try
+			F.Data.Linq.Join("Innerjoin","Object","oInvoiceC*!*IH",509,V.Args.BegCust,"      ",V.Args.EndCust,"zzzzzz",V.Screen.SS_Form1!dtp_BegDate.Value,V.Screen.SS_Form1!dtp_EndDate.Value,"Object","oInvoiceCL*!*IL",634,"0000000","IH.InvoiceNumber = IL.InvoiceNumber AND IH.SalesOrderNumber = IL.SalesOrderNumber AND IH.ShipmentSequence = IL.ShipmentSequence",V.Global.sProps,"","","","dtOrdShip",True)
+		F.Intrinsic.Control.EndTry
+	F.Intrinsic.Control.EndIf
+		
+	F.Intrinsic.Control.If(V.DataTable.dtOrdShips.Exists,=,True)
+		F.Intrinsic.Control.Try
+			F.Data.Linq.Join("Innerjoin","Object","oInvoiceCR4*!*SH",23,"0000000",V.Screen.SS_Form1!dtp_BegDate.Value,V.Args.BegCust,"      ",V.Screen.SS_Form1!dtp_EndDate.Value,V.Args.EndCust,"zzzzzz","Object","oInvoiceCR3*!*SL",10,"0000000","SH.SalesOrderNumber = SL.SalesOrderNumber AND SH.ShipmentSequence = SL.ShipmentSequence",V.Global.sProps2,"","","","dtRet",True)
+		F.Intrinsic.Control.EndTry
+		F.Intrinsic.Control.If(V.DataTable.dtRet.Exists,=,True)
+			F.Data.DataTable.Merge("dtRet","dtOrdShips",True,4)
+			F.Data.DataTable.Close("dtRet")
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Else
+		F.Intrinsic.Control.Try
+			F.Data.Linq.Join("Innerjoin","Object","oInvoiceCSH*!*SH",23,"0000000",V.Screen.SS_Form1!dtp_BegDate.Value,V.Args.BegCust,"      ",V.Screen.SS_Form1!dtp_EndDate.Value,V.Args.EndCust,"zzzzzz","Object","oInvoiceCS*!*SL",10,"0000000","SH.SalesOrderNumber = SL.SalesOrderNumber AND SH.ShipmentSequence = SL.ShipmentSequence",V.Global.sProps2,"","","","dtOrdShips",True)
+		F.Intrinsic.Control.EndTry
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.ElseIf(V.Screen.SS_Form1!chk_AllShipIDs.Value,=,0,"AND",V.Local.sRows,<>,"***NORETURN***")
+	F.Intrinsic.Control.If(V.Args.BegCust,=,V.Args.EndCust,"AND",V.Args.sRows,=,0)
+		F.Intrinsic.Control.CallSub(Listview_Loop_ShipID,"BegCust",V.Args.BegCust,"EndCust",V.Args.EndCust,"sRows",V.Args.sRows)
+	F.Intrinsic.Control.Else
+		F.Intrinsic.UI.MsgBox("Request ONLY 1 Customer when requesting with Shipto ID")
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Print_DateCustomerRange_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	'If no data found in data table, exitsub.
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,=,23300)
+		F.Global.Object.CloseConnection("GlobalDB",V.Local.iCon)
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+	Function.Intrinsic.String.Concat("Project: BIR_OE_OrderShipment_Customer.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.Print_DateCustomerRange.End
+
+Program.Sub.Listview_Loop_ShipID.Start
+F.Intrinsic.Control.SetErrorHandler("Listview_Loop_ShipID_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sRows.Declare(String)
+V.Local.iC.Declare(Long)
+V.Local.iOrd.Declare(Long)
+V.Local.sShipIDRange.Declare(String)
+V.Local.sRangePad1.Declare(String)
+V.Local.sRangePad2.Declare(String)
+
+'Checking Shipto ID Range
+GUI.SS_Form1.lvw1_ShiptoID.RetrieveAllListItems(V.Local.sRows)
+
+F.Intrinsic.Control.If(V.Local.sRows,<>,"***NORETURN***")
+	F.Intrinsic.String.Split(V.Local.sRows,"*!*",V.Local.sRows)
+	F.Intrinsic.Control.For(V.Local.iC,0,V.Local.sRows.UBound,1)
+		GUI.SS_Form1.lvw1_ShiptoID.RetrieveItemOrdinal(V.Local.sRows(V.Local.iC),V.Local.iOrd)
+		V.Local.sShipIDRange.Set(V.Screen.SS_Form1!lvw1_ShiptoID.ListItemTextExtended(V.Local.iOrd))
+		F.Intrinsic.String.Split(V.Local.sShipIDRange,"*!*",V.Local.sShipIDRange)
+		F.Intrinsic.String.RPad(V.Local.sShipIDRange(0)," ",6,V.Local.sRangePad1)
+		F.Intrinsic.String.RPad(V.Local.sShipIDRange(1)," ",6,V.Local.sRangePad2)
+		F.Intrinsic.Control.If(V.Local.iC,>=,1)
+			'Multi selection flag used for crystal report.
+			V.Global.bMultiSelection.Set(True)
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.If(V.Screen.SS_Form1!chk_AllDates.Value,=,1,"AND",V.Screen.SS_Form1!chk_AllShipIDs.Value,=,0)
+			F.Intrinsic.Control.CallSub(Print_AllDates,"BegShipID",V.Local.sRangePad1,"EndShipID",V.Local.sRangePad2,"BegCust",V.Args.BegCust,"EndCust",V.Args.EndCust)
+		F.Intrinsic.Control.ElseIf(V.Screen.SS_Form1!chk_AllDates.Value,=,0,"AND",V.Screen.SS_Form1!chk_AllShipIDs.Value,=,0)
+			F.Intrinsic.Control.CallSub(Print_DateShipRange,"BegShipID",V.Local.sRangePad1,"EndShipID",V.Local.sRangePad2,"BegCust",V.Args.BegCust,"EndCust",V.Args.EndCust)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Next(V.Local.iC)
+F.Intrinsic.Control.EndIf
+
+'Setting the ShipID range. Will use the line below to pass to crystal on CallBI.
+F.Intrinsic.Control.If(V.Local.sRows.UBound,=,0,"AND",V.Local.sRows,<>,"***NORETURN***")
+	F.Intrinsic.Control.If(V.Local.sShipIDRange(0),<>,V.Local.sShipIDRange(1))
+		F.Intrinsic.String.Build("Shipto IDs: {0} - {1}",V.Local.sShipIDRange(0),V.Local.sShipIDRange(1),V.Global.sShipIDRange)
+	F.Intrinsic.Control.Else
+		F.Intrinsic.String.Build("Shipto ID: {0}",V.Local.sShipIDRange(0),V.Global.sShipIDRange)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Elseif(V.Local.sRows.UBound,>,0)
+	V.Global.sShipIDRange.Set("Multiple Ship IDs Selected")
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Listview_Loop_ShipID_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: BIR_OE_OrderShipment_Customer.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(SS_Form1_Unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.Listview_Loop_ShipID.End
+
+Program.Sub.Print_AllDates.Start
+F.Intrinsic.Control.SetErrorHandler("Print_AllDates_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.iCon.Declare(Long)
+V.Local.iRet.Declare(Long)
+
+F.Intrinsic.Control.If(V.DataTable.dtOrdShip.Exists,=,True)
+	F.Intrinsic.Control.Try
+		F.Data.Linq.Join("Innerjoin","Object","oInvoiceCR2*!*IH",509,V.Args.BegCust,V.Args.BegShipID,V.Args.EndCust,V.Args.EndShipID,"01/01/1901","12/31/9999","Object","oInvoiceCR1*!*IL",634,"0000000","IH.InvoiceNumber = IL.InvoiceNumber AND IH.SalesOrderNumber = IL.SalesOrderNumber AND IH.ShipmentSequence = IL.ShipmentSequence",V.Global.sProps,"","","","dtRet",True)
+	F.Intrinsic.Control.EndTry
+	F.Intrinsic.Control.If(V.DataTable.dtRet.Exists,=,True)
+		F.Data.DataTable.Merge("dtRet","dtOrdShip",True,4)
+		F.Data.DataTable.Close("dtRet")
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Else
+	F.Intrinsic.Control.Try
+		F.Data.Linq.Join("Innerjoin","Object","oInvoiceC*!*IH",509,V.Args.BegCust,V.Args.BegShipID,V.Args.EndCust,V.Args.EndShipID,"01/01/1901","12/31/9999","Object","oInvoiceCL*!*IL",634,"0000000","IH.InvoiceNumber = IL.InvoiceNumber AND IH.SalesOrderNumber = IL.SalesOrderNumber AND IH.ShipmentSequence = IL.ShipmentSequence",V.Global.sProps,"","","","dtOrdShip",True)
+	F.Intrinsic.Control.EndTry
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.DataTable.dtOrdShips.Exists,=,True)
+	F.Intrinsic.Control.Try
+		F.Data.Linq.Join("Innerjoin","Object","oInvoiceCR4*!*SH",23,"0000000","01/01/1901",V.Args.BegCust,V.Args.BegShipID,"12/31/9999",V.Args.EndCust,V.Args.EndShipID,"Object","oInvoiceCR3*!*SL",10,"0000000","SH.SalesOrderNumber = SL.SalesOrderNumber AND SH.ShipmentSequence = SL.ShipmentSequence",V.Global.sProps2,"","","","dtRet",True)
+	F.Intrinsic.Control.EndTry
+	F.Intrinsic.Control.If(V.DataTable.dtRet.Exists,=,True)
+		F.Data.DataTable.Merge("dtRet","dtOrdShips",True,4)
+		F.Data.DataTable.Close("dtRet")
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Else
+	F.Intrinsic.Control.Try
+		F.Data.Linq.Join("Innerjoin","Object","oInvoiceCSH*!*SH",23,"0000000","01/01/1901",V.Args.BegCust,V.Args.BegShipID,"12/31/9999",V.Args.EndCust,V.Args.EndShipID,"Object","oInvoiceCS*!*SL",10,"0000000","SH.SalesOrderNumber = SL.SalesOrderNumber AND SH.ShipmentSequence = SL.ShipmentSequence",V.Global.sProps2,"","","","dtOrdShips",True)
+	F.Intrinsic.Control.EndTry
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Print_AllDates_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	'If no data found in data table, exitsub.
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,=,23300)
+		F.Global.Object.CloseConnection("GlobalDB",V.Local.iCon)
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+	Function.Intrinsic.String.Concat("Project: BIR_OE_OrderShipment_Customer.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.Print_AllDates.End
+
+Program.Sub.Print_DateShipRange.Start
+F.Intrinsic.Control.SetErrorHandler("Print_DateShipRange_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.iCon.Declare(Long)
+V.Local.iRet.Declare(Long)
+
+F.Intrinsic.Control.If(V.DataTable.dtOrdShip.Exists,=,True)
+	F.Intrinsic.Control.Try
+		F.Data.Linq.Join("Innerjoin","Object","oInvoiceCR2*!*IH",509,V.Args.BegCust,V.Args.BegShipID,V.Args.EndCust,V.Args.EndShipID,V.Screen.SS_Form1!dtp_BegDate.Value,V.Screen.SS_Form1!dtp_EndDate.Value,"Object","oInvoiceCR1*!*IL",634,"0000000","IH.InvoiceNumber = IL.InvoiceNumber AND IH.SalesOrderNumber = IL.SalesOrderNumber AND IH.ShipmentSequence = IL.ShipmentSequence",V.Global.sProps,"","","","dtRet",True)
+	F.Intrinsic.Control.EndTry
+	F.Intrinsic.Control.If(V.DataTable.dtRet.Exists,=,True)
+		F.Data.DataTable.Merge("dtRet","dtOrdShip",True,4)
+		F.Data.DataTable.Close("dtRet")
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Else
+	F.Intrinsic.Control.Try
+		F.Data.Linq.Join("Innerjoin","Object","oInvoiceC*!*IH",509,V.Args.BegCust,V.Args.BegShipID,V.Args.EndCust,V.Args.EndShipID,V.Screen.SS_Form1!dtp_BegDate.Value,V.Screen.SS_Form1!dtp_EndDate.Value,"Object","oInvoiceCL*!*IL",634,"0000000","IH.InvoiceNumber = IL.InvoiceNumber AND IH.SalesOrderNumber = IL.SalesOrderNumber AND IH.ShipmentSequence = IL.ShipmentSequence",V.Global.sProps,"","","","dtOrdShip",True)
+	F.Intrinsic.Control.EndTry
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.DataTable.dtOrdShips.Exists,=,True)
+	F.Intrinsic.Control.Try
+		F.Data.Linq.Join("Innerjoin","Object","oInvoiceCR4*!*SH",23,"0000000",V.Screen.SS_Form1!dtp_BegDate.Value,V.Args.BegCust,V.Args.BegShipID,V.Screen.SS_Form1!dtp_EndDate.Value,V.Args.EndCust,V.Args.EndShipID,"Object","oInvoiceCR3*!*SL",10,"0000000","SH.SalesOrderNumber = SL.SalesOrderNumber AND SH.ShipmentSequence = SL.ShipmentSequence",V.Global.sProps2,"","","","dtRet",True)
+	F.Intrinsic.Control.EndTry
+	F.Intrinsic.Control.If(V.DataTable.dtRet.Exists,=,True)
+		F.Data.DataTable.Merge("dtRet","dtOrdShips",True,4)
+		F.Data.DataTable.Close("dtRet")
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Else
+	F.Intrinsic.Control.Try
+		F.Data.Linq.Join("Innerjoin","Object","oInvoiceCSH*!*SH",23,"0000000",V.Screen.SS_Form1!dtp_BegDate.Value,V.Args.BegCust,V.Args.BegShipID,V.Screen.SS_Form1!dtp_EndDate.Value,V.Args.EndCust,V.Args.EndShipID,"Object","oInvoiceCS*!*SL",10,"0000000","SH.SalesOrderNumber = SL.SalesOrderNumber AND SH.ShipmentSequence = SL.ShipmentSequence",V.Global.sProps2,"","","","dtOrdShips",True)
+	F.Intrinsic.Control.EndTry
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Print_DateShipRange_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	'If no data found in data table, exitsub.
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,=,23300)
+		F.Global.Object.CloseConnection("GlobalDB",V.Local.iCon)
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+	Function.Intrinsic.String.Concat("Project: BIR_OE_OrderShipment_Customer.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.Print_DateShipRange.End
+
+Program.Sub.chk_AllDates_Click.Start
+F.Intrinsic.Control.SetErrorHandler("chk_AllDates_Click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+F.Intrinsic.Control.If(V.Screen.SS_Form1!chk_AllDates.Value,=,1)
+	'Disable entry of date range
+	GUI.SS_Form1.dtp_BegDate.Enabled(False)
+	GUI.SS_Form1.dtp_EndDate.Enabled(False)
+F.Intrinsic.Control.Else
+	'Enable entry of date range
+	GUI.SS_Form1.dtp_BegDate.Enabled(True)
+	GUI.SS_Form1.dtp_EndDate.Enabled(True)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("chk_AllDates_Click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: BIR_OE_OrderShipment_Customer.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(SS_Form1_Unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.chk_AllDates_Click.End
+
+Program.Sub.txt_BegCust_GotFocus.Start
+F.Intrinsic.Control.SetErrorHandler("txt_BegCust_GotFocus_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+GUI.SS_Form1.txt_BegCust.SelectAll
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("txt_BegCust_GotFocus_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: BIR_OE_OrderShipment_Customer.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(SS_Form1_Unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.txt_BegCust_GotFocus.End
+
+Program.Sub.txt_BegCust_LostFocus.Start
+F.Intrinsic.Control.SetErrorHandler("txt_BegCust_LostFocus_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+GUI.SS_Form1.txt_EndCust.Text(V.Screen.SS_Form1!txt_BegCust.Text)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("txt_BegCust_LostFocus_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: BIR_OE_OrderShipment_Customer.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(SS_Form1_Unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.txt_BegCust_LostFocus.End
+
+Program.Sub.txt_EndCust_GotFocus.Start
+F.Intrinsic.Control.SetErrorHandler("txt_EndCust_GotFocus_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+GUI.SS_Form1.txt_EndCust.SelectAll
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("txt_EndCust_GotFocus_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: BIR_OE_OrderShipment_Customer.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(SS_Form1_Unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.txt_EndCust_GotFocus.End
+
+Program.Sub.chk_AllCustomers_Click.Start
+F.Intrinsic.Control.SetErrorHandler("chk_AllCustomers_Click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+F.Intrinsic.Control.If(V.Screen.SS_Form1!chk_AllCustomers.Value,=,1)
+	'Disable entry of range
+	GUI.SS_Form1.txt_BegCust.Enabled(False)
+	GUI.SS_Form1.txt_EndCust.Enabled(False)
+	GUI.SS_Form1.cmd_txt_BegCust.Enabled(False)
+	GUI.SS_Form1.cmd_txt_EndCust.Enabled(False)
+	GUI.SS_Form1.cmd_lvw1_CustAdd.Enabled(False)
+	GUI.SS_Form1.cmd_lvw1_CustClear.Enabled(False)
+	GUI.SS_Form1.cmd_lvw1_CustDelete.Enabled(False)
+	GUI.SS_Form1.txt_BegCust.Text("")
+	GUI.SS_Form1.txt_EndCust.Text("")
+	GUI.SS_Form1.lvw1_Cust.ClearItems
+
+	GUI.SS_Form1.txt_BegShipID.Enabled(False)
+	GUI.SS_Form1.txt_EndShipID.Enabled(False)
+	GUI.SS_Form1.cmd_txt_BegShipID.Enabled(False)
+	GUI.SS_Form1.cmd_txt_EndShipID.Enabled(False)
+	GUI.SS_Form1.cmd_lvw1_ShiptoIDAdd.Enabled(False)
+	GUI.SS_Form1.cmd_lvw1_ShiptoIDClear.Enabled(False)
+	GUI.SS_Form1.cmd_lvw1_ShiptoIDDelete.Enabled(False)
+	GUI.SS_Form1.chk_AllShipIDs.Enabled(False)
+	GUI.SS_Form1.txt_BegShipID.Text("")
+	GUI.SS_Form1.txt_EndShipID.Text("")
+	GUI.SS_Form1.lvw1_ShiptoID.ClearItems
+F.Intrinsic.Control.Else
+	'Enable entry of range
+	GUI.SS_Form1.txt_BegCust.Enabled(True)
+	GUI.SS_Form1.txt_EndCust.Enabled(True)
+	GUI.SS_Form1.cmd_txt_BegCust.Enabled(True)
+	GUI.SS_Form1.cmd_txt_EndCust.Enabled(True)
+	GUI.SS_Form1.cmd_lvw1_CustAdd.Enabled(True)
+	GUI.SS_Form1.cmd_lvw1_CustClear.Enabled(True)
+	GUI.SS_Form1.cmd_lvw1_CustDelete.Enabled(True)
+	GUI.SS_Form1.lvw1_Cust.ClearItems
+
+	GUI.SS_Form1.txt_BegShipID.Enabled(True)
+	GUI.SS_Form1.txt_EndShipID.Enabled(True)
+	GUI.SS_Form1.cmd_txt_BegShipID.Enabled(True)
+	GUI.SS_Form1.cmd_txt_EndShipID.Enabled(True)
+	GUI.SS_Form1.cmd_lvw1_ShiptoIDAdd.Enabled(True)
+	GUI.SS_Form1.cmd_lvw1_ShiptoIDClear.Enabled(True)
+	GUI.SS_Form1.cmd_lvw1_ShiptoIDDelete.Enabled(True)
+	GUI.SS_Form1.chk_AllShipIDs.Enabled(True)
+	GUI.SS_Form1.lvw1_ShiptoID.ClearItems
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("chk_AllCustomers_Click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: BIR_OE_OrderShipment_Customer.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(SS_Form1_Unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.chk_AllCustomers_Click.End
+
+Program.Sub.cmd_txt_BegCust_Click.Start
+F.Intrinsic.Control.SetErrorHandler("cmd_txt_BegCust_Click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sRet.Declare(String)
+
+F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+F.Intrinsic.UI.Browser(205,"",V.Local.sRet)
+
+F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	GUI.SS_Form1.txt_BegCust.Text(V.Local.sRet.Trim)
+	GUI.SS_Form1.txt_EndCust.Text(V.Screen.SS_Form1!txt_BegCust.Text)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmd_txt_BegCust_Click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: BIR_OE_OrderShipment_Customer.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(SS_Form1_Unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.cmd_txt_BegCust_Click.End
+
+Program.Sub.cmd_txt_EndCust_Click.Start
+F.Intrinsic.Control.SetErrorHandler("cmd_txt_EndCust_Click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sRet.Declare(String)
+
+F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+F.Intrinsic.UI.Browser(205,"",V.Local.sRet)
+
+F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	GUI.SS_Form1.txt_EndCust.Text(V.Local.sRet.Trim)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmd_txt_EndCust_Click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: BIR_OE_OrderShipment_Customer.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(SS_Form1_Unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.cmd_txt_EndCust_Click.End
+
+Program.Sub.cmd_lvw1_CustAdd_Click.Start
+F.Intrinsic.Control.SetErrorHandler("cmd_lvw1_CustAdd_Click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+F.Intrinsic.Control.If(V.Screen.SS_Form1!txt_BegCust.Text,<," ")
+F.Intrinsic.Control.AndIf(V.Screen.SS_Form1!txt_EndCust.Text,<," ")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Math.Add(V.Global.iKey,1,V.Global.iKey)
+GUI.SS_Form1.lvw1_Cust.AddListItem(V.Global.iKey,V.Screen.SS_Form1!txt_BegCust.Text)
+GUI.SS_Form1.lvw1_Cust.SetListItemSubItemText(V.Global.iKey,1,V.Screen.SS_Form1!txt_EndCust.Text)
+GUI.SS_Form1.txt_BegCust.Text("")
+GUI.SS_Form1.txt_EndCust.Text("")
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmd_lvw1_CustAdd_Click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: BIR_OE_OrderShipment_Customer.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(SS_Form1_Unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.cmd_lvw1_CustAdd_Click.End
+
+Program.Sub.cmd_lvw1_CustDelete_Click.Start
+F.Intrinsic.Control.SetErrorHandler("cmd_lvw1_CustDelete_Click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.iKey.Declare(Long)
+
+V.Local.iKey.Set(V.Screen.SS_Form1!lvw1_Cust.SelectedItemKey)
+GUI.SS_Form1.lvw1_Cust.RemoveItem(V.Local.iKey)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmd_lvw1_CustDelete_Click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: BIR_OE_OrderShipment_Customer.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(SS_Form1_Unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.cmd_lvw1_CustDelete_Click.End
+
+Program.Sub.cmd_lvw1_CustClear_Click.Start
+F.Intrinsic.Control.SetErrorHandler("cmd_lvw1_CustClear_Click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+GUI.SS_Form1.lvw1_Cust.ClearItems
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmd_lvw1_CustClear_Click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: BIR_OE_OrderShipment_Customer.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(SS_Form1_Unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.cmd_lvw1_CustClear_Click.End
+
+Program.Sub.txt_BegShipID_GotFocus.Start
+F.Intrinsic.Control.SetErrorHandler("txt_BegShipID_GotFocus_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+GUI.SS_Form1.txt_BegShipID.SelectAll
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("txt_BegShipID_GotFocus_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: BIR_OE_OrderShipment_Customer.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(SS_Form1_Unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.txt_BegShipID_GotFocus.End
+
+Program.Sub.txt_BegShipID_LostFocus.Start
+F.Intrinsic.Control.SetErrorHandler("txt_BegShipID_LostFocus_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+GUI.SS_Form1.txt_EndShipID.Text(V.Screen.SS_Form1!txt_BegShipID.Text)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("txt_BegShipID_LostFocus_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: BIR_OE_OrderShipment_Customer.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(SS_Form1_Unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.txt_BegShipID_LostFocus.End
+
+Program.Sub.txt_EndShipID_GotFocus.Start
+F.Intrinsic.Control.SetErrorHandler("txt_EndShipID_GotFocus_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+GUI.SS_Form1.txt_EndShipID.SelectAll
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("txt_EndShipID_GotFocus_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: BIR_OE_OrderShipment_Customer.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(SS_Form1_Unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.txt_EndShipID_GotFocus.End
+
+Program.Sub.cmd_txt_BegShipID_Click.Start
+F.Intrinsic.Control.SetErrorHandler("cmd_txt_BegShipID_Click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.sReturn.Declare(String)
+V.Local.sCust.Declare(String)
+V.Local.sCustRange.Declare(String)
+V.Local.iCon.Declare(Long)
+V.Local.iRet.Declare(Long)
+V.Local.sFields.Declare(String)
+V.Local.sRows.Declare(String)
+V.Local.iC.Declare(Long)
+V.Local.iOrd.Declare(Long)
+
+GUI.SS_Form1.lvw1_Cust.RetrieveAllListItems(V.Local.sRows)
+
+F.Intrinsic.Control.If(V.Local.sRows,<>,"***NORETURN***")
+	F.Intrinsic.String.Split(V.Local.sRows,"*!*",V.Local.sRows)
+	F.Intrinsic.Control.If(V.Local.sRows.UBound,=,0)
+		GUI.SS_Form1.lvw1_Cust.RetrieveItemOrdinal(V.Local.sRows(0),V.Local.iOrd)
+		V.Local.sCustRange.Set(V.Screen.SS_Form1!lvw1_Cust.ListItemTextExtended(V.Local.iOrd))
+		F.Intrinsic.String.Split(V.Local.sCustRange,"*!*",V.Local.sCustRange)
+		F.Intrinsic.Control.If(V.Local.sCustRange(0),=,V.Local.sCustRange(1))
+			F.Intrinsic.String.RPad(V.Local.sCustRange(0)," ",6,V.Local.sCust)
+		F.Intrinsic.Control.Else
+			F.Intrinsic.UI.Msgbox("Request ONLY 1 Customer when requesting with Shipto ID")
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Else
+		F.Intrinsic.UI.Msgbox("Request ONLY 1 Customer when requesting with Shipto ID")
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.Local.sCust,<>,"")
+	V.Local.sFields.Set("CustomerShipToNumber*!*Shipping-Address-Name*!*Shipping-Address-City*!*Shipping-Address-State*!*Shipping-Address-Country*!*Shipping-Address-Address1*!*Shipping-Address-Address2")
+	
+	F.Global.Object.LoadDataTable("dtShipToID","oShiptoID","Sales.CustomerShipTos","GlobalDB",V.Local.iCon,5,TRUE,,-1,V.Local.sCust)
+	
+	F.Data.DataView.Create("dtShipToID","dvShipToID")
+	F.Data.DataView.ToString("dtShipToID","dvShipToID",V.Local.sFields,"*!*","::",V.Local.sRet)
+	
+	F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+	F.Intrinsic.UI.BrowserFromString("Select ShiptoID",V.Local.sRet,"*!*","::","ShiptoID*!*CustomerName*!*City*!*State*!*Country*!*Address1*!*Address2","150*!*400*!*300*!*150*!*200*!*450*!*400",V.Local.sReturn)
+	
+	F.Intrinsic.Control.If(V.Local.sReturn,<>,"***CANCEL***")
+		F.Intrinsic.String.Split(V.Local.sReturn,"*!*",V.Local.sReturn)
+		GUI.SS_Form1.txt_BegShipID.Text(V.Local.sReturn.Trim)
+		GUI.SS_Form1.txt_EndShipID.Text(V.Screen.SS_Form1!txt_BegShipID.Text)
+	F.Intrinsic.Control.EndIf
+	
+	F.Data.DataView.Close("dtShipToID","dvShipToID")
+	F.Data.DataTable.Close("dtShipToID")
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmd_txt_BegShipID_Click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,=,23075)
+		F.Global.Object.CloseConnection("GlobalDB",V.Local.iCon)
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+	Function.Intrinsic.String.Concat("Project: BIR_OE_OrderShipment_Customer.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(SS_Form1_Unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.cmd_txt_BegShipID_Click.End
+
+Program.Sub.cmd_txt_EndShipID_Click.Start
+F.Intrinsic.Control.SetErrorHandler("cmd_txt_EndShipID_Click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.sReturn.Declare(String)
+V.Local.sCust.Declare(String)
+V.Local.sCustRange.Declare(String)
+V.Local.iCon.Declare(Long)
+V.Local.iRet.Declare(Long)
+V.Local.sFields.Declare(String)
+V.Local.sRows.Declare(String)
+V.Local.iC.Declare(Long)
+V.Local.iOrd.Declare(Long)
+
+GUI.SS_Form1.lvw1_Cust.RetrieveAllListItems(V.Local.sRows)
+
+F.Intrinsic.Control.If(V.Local.sRows,<>,"***NORETURN***")
+	F.Intrinsic.String.Split(V.Local.sRows,"*!*",V.Local.sRows)
+	F.Intrinsic.Control.If(V.Local.sRows.UBound,=,0)
+		GUI.SS_Form1.lvw1_Cust.RetrieveItemOrdinal(V.Local.sRows(0),V.Local.iOrd)
+		V.Local.sCustRange.Set(V.Screen.SS_Form1!lvw1_Cust.ListItemTextExtended(V.Local.iOrd))
+		F.Intrinsic.String.Split(V.Local.sCustRange,"*!*",V.Local.sCustRange)
+		F.Intrinsic.Control.If(V.Local.sCustRange(0),=,V.Local.sCustRange(1))
+			F.Intrinsic.String.RPad(V.Local.sCustRange(0)," ",6,V.Local.sCust)
+		F.Intrinsic.Control.Else
+			F.Intrinsic.UI.Msgbox("Request ONLY 1 Customer when requesting with Shipto ID")
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Else
+		F.Intrinsic.UI.Msgbox("Request ONLY 1 Customer when requesting with Shipto ID")
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.Local.sCust,<>,"")
+	V.Local.sFields.Set("CustomerShipToNumber*!*Shipping-Address-Name*!*Shipping-Address-City*!*Shipping-Address-State*!*Shipping-Address-Country*!*Shipping-Address-Address1*!*Shipping-Address-Address2")
+	
+	F.Global.Object.LoadDataTable("dtShipToIDs","oShiptoID","Sales.CustomerShipTos","GlobalDB",V.Local.iCon,5,TRUE,,-1,V.Local.sCust)
+	
+	F.Data.DataView.Create("dtShipToIDs","dvShipToIDs")
+	F.Data.DataView.ToString("dtShipToIDs","dvShipToIDs",V.Local.sFields,"*!*","::",V.Local.sRet)
+	
+	F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+	F.Intrinsic.UI.BrowserFromString("Select ShiptoID",V.Local.sRet,"*!*","::","ShiptoID*!*CustomerName*!*City*!*State*!*Country*!*Address1*!*Address2","150*!*400*!*300*!*150*!*200*!*450*!*400",V.Local.sReturn)
+	
+	F.Intrinsic.Control.If(V.Local.sReturn,<>,"***CANCEL***")
+		F.Intrinsic.String.Split(V.Local.sReturn,"*!*",V.Local.sReturn)
+		GUI.SS_Form1.txt_EndShipID.Text(V.Local.sReturn.Trim)
+	F.Intrinsic.Control.EndIf
+	
+	F.Data.DataView.Close("dtShipToIDs","dvShipToIDs")
+	F.Data.DataTable.Close("dtShipToIDs")
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmd_txt_EndShipID_Click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,=,23075)
+		F.Global.Object.CloseConnection("GlobalDB",V.Local.iCon)
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+	Function.Intrinsic.String.Concat("Project: BIR_OE_OrderShipment_Customer.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(SS_Form1_Unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.cmd_txt_EndShipID_Click.End
+
+Program.Sub.chk_AllShipIDs_Click.Start
+F.Intrinsic.Control.SetErrorHandler("chk_AllShipIds_Click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.sReturn.Declare(String)
+V.Local.sCust.Declare(String)
+V.Local.sCustRange.Declare(String)
+V.Local.iCon.Declare(Long)
+V.Local.iRet.Declare(Long)
+V.Local.sFields.Declare(String)
+V.Local.sRows.Declare(String)
+V.Local.iC.Declare(Long)
+V.Local.iOrd.Declare(Long)
+
+F.Intrinsic.Control.If(V.Screen.SS_Form1!chk_AllShipIDs.Value,=,1)
+	GUI.SS_Form1.lvw1_Cust.RetrieveAllListItems(V.Local.sRows)
+	
+	F.Intrinsic.Control.If(V.Local.sRows,<>,"***NORETURN***")
+		F.Intrinsic.String.Split(V.Local.sRows,"*!*",V.Local.sRows)
+		F.Intrinsic.Control.If(V.Local.sRows.UBound,=,0)
+			GUI.SS_Form1.lvw1_Cust.RetrieveItemOrdinal(V.Local.sRows(0),V.Local.iOrd)
+			V.Local.sCustRange.Set(V.Screen.SS_Form1!lvw1_Cust.ListItemTextExtended(V.Local.iOrd))
+			F.Intrinsic.String.Split(V.Local.sCustRange,"*!*",V.Local.sCustRange)
+			F.Intrinsic.Control.If(V.Local.sCustRange(0),=,V.Local.sCustRange(1))
+				F.Intrinsic.String.RPad(V.Local.sCustRange(0)," ",6,V.Local.sCust)
+			F.Intrinsic.Control.Else
+				F.Intrinsic.UI.Msgbox("Request ONLY 1 Customer when requesting with Shipto ID")
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.ElseIf(V.Local.sRows.UBound,>,0)
+			F.Intrinsic.UI.Msgbox("Request ONLY 1 Customer when requesting with Shipto ID")
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.Screen.SS_Form1!chk_AllShipIDs.Value,=,1)
+	'Disable entry of range
+	GUI.SS_Form1.txt_BegShipID.Enabled(False)
+	GUI.SS_Form1.txt_EndShipID.Enabled(False)
+	GUI.SS_Form1.cmd_txt_BegShipID.Enabled(False)
+	GUI.SS_Form1.cmd_txt_EndShipID.Enabled(False)
+	GUI.SS_Form1.cmd_lvw1_ShiptoIDAdd.Enabled(False)
+	GUI.SS_Form1.cmd_lvw1_ShiptoIDClear.Enabled(False)
+	GUI.SS_Form1.cmd_lvw1_ShiptoIDDelete.Enabled(False)
+	GUI.SS_Form1.txt_BegShipID.Text("")
+	GUI.SS_Form1.txt_EndShipID.Text("")
+	GUI.SS_Form1.lvw1_ShiptoID.ClearItems
+F.Intrinsic.Control.Else
+	'Enable entry of range
+	GUI.SS_Form1.txt_BegShipID.Enabled(True)
+	GUI.SS_Form1.txt_EndShipID.Enabled(True)
+	GUI.SS_Form1.cmd_txt_BegShipID.Enabled(True)
+	GUI.SS_Form1.cmd_txt_EndShipID.Enabled(True)
+	GUI.SS_Form1.cmd_lvw1_ShiptoIDAdd.Enabled(True)
+	GUI.SS_Form1.cmd_lvw1_ShiptoIDClear.Enabled(True)
+	GUI.SS_Form1.cmd_lvw1_ShiptoIDDelete.Enabled(True)
+	GUI.SS_Form1.lvw1_ShiptoID.ClearItems
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("chk_AllShipIDs_Click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: BIR_OE_OrderShipment_Customer.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(SS_Form1_Unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.chk_AllShipIDs_Click.End
+
+Program.Sub.cmd_lvw1_ShiptoIDAdd_Click.Start
+F.Intrinsic.Control.SetErrorHandler("cmd_lvw1_ShiptoIDAdd_Click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.sReturn.Declare(String)
+V.Local.sCust.Declare(String)
+V.Local.sCustRange.Declare(String)
+V.Local.iCon.Declare(Long)
+V.Local.iRet.Declare(Long)
+V.Local.sFields.Declare(String)
+V.Local.sRows.Declare(String)
+V.Local.iC.Declare(Long)
+V.Local.iOrd.Declare(Long)
+
+GUI.SS_Form1.lvw1_Cust.RetrieveAllListItems(V.Local.sRows)
+
+F.Intrinsic.Control.If(V.Local.sRows,<>,"***NORETURN***")
+	F.Intrinsic.String.Split(V.Local.sRows,"*!*",V.Local.sRows)
+	F.Intrinsic.Control.If(V.Local.sRows.UBound,=,0)
+		GUI.SS_Form1.lvw1_Cust.RetrieveItemOrdinal(V.Local.sRows(0),V.Local.iOrd)
+		V.Local.sCustRange.Set(V.Screen.SS_Form1!lvw1_Cust.ListItemTextExtended(V.Local.iOrd))
+		F.Intrinsic.String.Split(V.Local.sCustRange,"*!*",V.Local.sCustRange)
+		F.Intrinsic.Control.If(V.Local.sCustRange(0),=,V.Local.sCustRange(1))
+			F.Intrinsic.String.RPad(V.Local.sCustRange(0)," ",6,V.Local.sCust)
+		F.Intrinsic.Control.Else
+			F.Intrinsic.UI.Msgbox("Request ONLY 1 Customer when requesting with Shipto ID")
+			GUI.SS_Form1.txt_BegShipID.Text("")
+			GUI.SS_Form1.txt_EndShipID.Text("")
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.ElseIf(V.Local.sRows.UBound,>,0)
+		F.Intrinsic.UI.Msgbox("Request ONLY 1 Customer when requesting with Shipto ID")
+		GUI.SS_Form1.txt_BegShipID.Text("")
+		GUI.SS_Form1.txt_EndShipID.Text("")
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.Screen.SS_Form1!txt_BegShipID.Text,<," ")
+F.Intrinsic.Control.AndIf(V.Screen.SS_Form1!txt_EndShipID.Text,<," ")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Math.Add(V.Global.iKey,1,V.Global.iKey)
+GUI.SS_Form1.lvw1_ShiptoID.AddListItem(V.Global.iKey,V.Screen.SS_Form1!txt_BegShipID.Text)
+GUI.SS_Form1.lvw1_ShiptoID.SetListItemSubItemText(V.Global.iKey,1,V.Screen.SS_Form1!txt_EndShipID.Text)
+GUI.SS_Form1.txt_BegShipID.Text("")
+GUI.SS_Form1.txt_EndShipID.Text("")
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmd_lvw1_ShiptoIDAdd_Click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: BIR_OE_OrderShipment_Customer.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(SS_Form1_Unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.cmd_lvw1_ShiptoIDAdd_Click.End
+
+Program.Sub.cmd_lvw1_ShiptoIDDelete_Click.Start
+F.Intrinsic.Control.SetErrorHandler("cmd_lvw1_ShiptoIDDelete_Click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.iKey.Declare(Long)
+
+V.Local.iKey.Set(V.Screen.SS_Form1!lvw1_ShiptoID.SelectedItemKey)
+GUI.SS_Form1.lvw1_ShiptoID.RemoveItem(V.Local.iKey)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmd_lvw1_ShiptoIDDelete_Click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: BIR_OE_OrderShipment_Customer.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(SS_Form1_Unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.cmd_lvw1_ShiptoIDDelete_Click.End
+
+Program.Sub.cmd_lvw1_ShiptoIDClear_Click.Start
+F.Intrinsic.Control.SetErrorHandler("cmd_lvw1_ShiptoIDClear_Click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+GUI.SS_Form1.lvw1_ShiptoID.ClearItems
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmd_lvw1_ShiptoIDClear_Click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: BIR_OE_OrderShipment_Customer.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(SS_Form1_Unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.cmd_lvw1_ShiptoIDClear_Click.End
+
+Program.Sub.CallBI.Start
+F.Intrinsic.Control.SetErrorHandler("CallBI_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sParams.Declare(String)
+V.Local.sValues.Declare(String)
+V.Local.iRet.Declare(Long)
+
+V.Local.sParams.Set("AllDates*!*AllCustomers*!*AllShiptoIDs*!*DateRange*!*CustomerRange*!*ShipIDRange*!*InclFreight*!*PrtQDec")
+F.Intrinsic.String.Build("{0}*!*{1}*!*{2}*!*{3}*!*{4}*!*{5}*!*{6}*!*{7}",V.Screen.SS_Form1!chk_AllDates.Value,V.Screen.SS_Form1!chk_AllCustomers.Value,V.Screen.SS_Form1!chk_AllShipIDs.Value,V.Global.sDateRange,V.Global.sCustRange,V.Global.sShipIDRange,V.Screen.SS_Form1!chk_InclFreight.Value,V.Global.QDec,V.Local.sValues)
+
+F.Global.BI.RunReportPreProcessor(V.Global.iBIRunID,V.Global.iLogid,V.Local.sParams,V.Local.sValues,"",-1,True,"",-1,"",-1,"","",V.Local.iRet)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("CallBI_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: BIR_OE_OrderShipment_Customer.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(SS_Form1_Unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.CallBI.End
+
+Program.Sub.SS_Form1_UnLoad.Start
+F.Intrinsic.Control.SetErrorHandler("SS_FORM1_Unload_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.iCon.Declare(Long)
+
+'Close Connection
+F.Global.Object.CloseConnection("GlobalDB",V.Local.iCon)
+F.Intrinsic.Control.End
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("SS_FORM1_Unload_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: BIR_OE_OrderShipment_Customer.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.SS_Form1_UnLoad.End
+
+Program.Sub.Comments.Start
+${$0$}$$}$SUPERVSR$}$4/21/2017 2:52:52 PM$}$False
+Program.Sub.Comments.End
+
+Program.Sub.ScreenSS.Start
+SS_Form1{{CAPTION::
+SS_Form1.CTRL{{NAME::dtp_BegDate\\TYPE::6\\CAPTION::Beginning Shipped Date\\TABSTOP::1\\GROUP::2\\BROWSER::0\\INTL::63800\\SIZE::1
+SS_Form1.CTRL{{NAME::dtp_EndDate\\TYPE::6\\CAPTION::Ending Shipped Date\\TABSTOP::2\\GROUP::2\\BROWSER::0\\INTL::216300\\SIZE::1
+SS_Form1.CTRL{{NAME::chk_AllDates\\TYPE::9\\CAPTION::All Dates\\TABSTOP::3\\GROUP::-1\\SUBGROUP::1\\BROWSER::0\\INTL::19700\\SIZE::1
+SS_Form1.CTRL{{NAME::txt_BegCust\\TYPE::2\\CAPTION::Beginning Customer\\RANGE::lvw1_Cust\\TABSTOP::4\\GROUP::1\\BROWSER::1\\INTL::61000\\SIZE::1
+SS_Form1.CTRL{{NAME::txt_EndCust\\TYPE::2\\CAPTION::Ending Customer\\RANGE::lvw1_Cust\\TABSTOP::5\\GROUP::1\\BROWSER::1\\INTL::212900\\SIZE::1
+SS_Form1.CTRL{{NAME::chk_AllCustomers\\TYPE::9\\CAPTION::All Customers\\TABSTOP::6\\GROUP::-1\\SUBGROUP::1\\BROWSER::0\\INTL::19200\\SIZE::1
+SS_Form1.CTRL{{NAME::lvw1_Cust\\TYPE::7\\GROUP::-1\\BROWSER::0\\SIZE::1
+SS_Form1.CTRL{{NAME::txt_BegShipID\\TYPE::2\\CAPTION::Beginning Shipto ID\\RANGE::lvw1_ShiptoID\\TABSTOP::7\\GROUP::3\\BROWSER::1\\INTL::63900\\SIZE::1
+SS_Form1.CTRL{{NAME::txt_EndShipID\\TYPE::2\\CAPTION::Ending Shipto ID\\RANGE::lvw1_ShiptoID\\TABSTOP::8\\GROUP::3\\BROWSER::1\\INTL::216400\\SIZE::1
+SS_Form1.CTRL{{NAME::chk_AllShipIDs\\TYPE::9\\CAPTION::All Shipto IDs\\TABSTOP::9\\GROUP::-1\\SUBGROUP::1\\BROWSER::0\\INTL::751802\\SIZE::1
+SS_Form1.CTRL{{NAME::lvw1_ShiptoID\\TYPE::7\\GROUP::-1\\BROWSER::0\\SIZE::1
+SS_Form1.CTRL{{NAME::chk_InclFreight\\TYPE::9\\CAPTION::Include Freight Charges\\TABSTOP::10\\GROUP::-1\\BROWSER::0\\INTL::291402\\SIZE::1
+SS_Form1.CTRL{{NAME::cmd_Print\\TYPE::5\\CAPTION::Print\\TABSTOP::11\\GROUP::-1\\BROWSER::0\\INTL::452800\\SIZE::1
+
+Program.Sub.ScreenSS.End
